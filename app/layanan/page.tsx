@@ -210,7 +210,8 @@ export default function LayananPage() {
         "Cloud-based dengan offline capability",
         "Affordable pricing untuk desa",
       ],
-      cta: "Demo Platform",
+      cta: "Akses Platform BUMDes",
+      ctaHref: "https://produk-natdes.vercel.app/",
     },
     {
       icon: Briefcase,
@@ -628,7 +629,7 @@ export default function LayananPage() {
                     )}
 
                     <Button className="w-full mt-4" asChild>
-                      <Link href="/kontak">{service.cta} →</Link>
+                      <Link href={(service as any).ctaHref || "/kontak"} target={(service as any).ctaHref ? "_blank" : undefined} rel={(service as any).ctaHref ? "noopener noreferrer" : undefined}>{service.cta} →</Link>
                     </Button>
                   </CardContent>
                 </Card>
