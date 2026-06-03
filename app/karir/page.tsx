@@ -1,11 +1,16 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingActions } from "@/components/floating-actions"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function KarirPage() {
+  const { t } = useLanguage()
+
   return (
     <>
       <Header />
@@ -13,10 +18,8 @@ export default function KarirPage() {
         <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-accent/10">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl font-bold mb-6 text-balance">Karir di Natadesa</h1>
-              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-                Bergabunglah dengan tim kami untuk membangun masa depan desa Indonesia yang lebih baik
-              </p>
+              <h1 className="text-4xl font-bold mb-6 text-balance">{t.karir.heroTitle}</h1>
+              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">{t.karir.heroDesc}</p>
             </div>
           </div>
         </section>
@@ -25,7 +28,7 @@ export default function KarirPage() {
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <Card className="max-w-2xl mx-auto text-center">
               <CardHeader>
-                <CardTitle>Lowongan Tersedia Segera</CardTitle>
+                <CardTitle>{t.karir.cardTitle}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-6">

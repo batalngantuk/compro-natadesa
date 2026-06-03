@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingActions } from "@/components/floating-actions"
@@ -5,8 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button"
 import { LayoutDashboard, GraduationCap, Search, FileText, Database, ShoppingCart, Globe, Zap } from "lucide-react"
 import Link from "next/link"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function PlatformPage() {
+  const { t } = useLanguage()
   const desaPortalFeatures = [
     {
       icon: LayoutDashboard,

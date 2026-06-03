@@ -15,8 +15,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 // Import sumber data tunggal
 import { allProjects, Project } from "@/data/projects"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function PortfolioPage() {
+  const { t } = useLanguage()
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedYear, setSelectedYear] = useState("all")
   const [selectedCategory, setSelectedCategory] = useState("all")

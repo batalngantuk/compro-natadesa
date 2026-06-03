@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from "react"
 import Link from "next/link"
+import { useLanguage } from "@/contexts/language-context"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingActions } from "@/components/floating-actions"
@@ -166,6 +167,7 @@ const articles = [
 ];
 
 export default function ArtikelPage() {
+  const { t } = useLanguage()
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);

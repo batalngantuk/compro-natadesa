@@ -2,8 +2,11 @@
 
 import { MessageCircle, FileDown, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/contexts/language-context"
 
 export function FloatingActions() {
+  const { t } = useLanguage()
+
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
       {/* WhatsApp */}
@@ -13,17 +16,17 @@ export function FloatingActions() {
         onClick={() => window.open("https://wa.me/6288200637845", "_blank")}
       >
         <MessageCircle className="h-5 w-5" />
-        <span className="sr-only">WhatsApp Chat</span>
+        <span className="sr-only">{t.floating.whatsapp}</span>
       </Button>
 
-      {/* Konsultasi Gratis */}
+      {/* Konsultasi */}
       <Button
         size="icon"
         className="h-12 w-12 rounded-full shadow-lg"
         onClick={() => (window.location.href = "/kontak")}
       >
         <Phone className="h-5 w-5" />
-        <span className="sr-only">Konsultasi Gratis</span>
+        <span className="sr-only">{t.floating.consult}</span>
       </Button>
 
       {/* Download Company Profile */}
@@ -31,10 +34,10 @@ export function FloatingActions() {
         size="icon"
         variant="secondary"
         className="h-12 w-12 rounded-full shadow-lg"
-        onClick={() => alert("Download Company Profile PDF akan segera tersedia")}
+        onClick={() => alert(t.floating.downloadAlert)}
       >
         <FileDown className="h-5 w-5" />
-        <span className="sr-only">Download Company Profile</span>
+        <span className="sr-only">{t.floating.download}</span>
       </Button>
     </div>
   )

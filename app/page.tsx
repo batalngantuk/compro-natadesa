@@ -1,6 +1,7 @@
 "use client" // Dibutuhkan untuk menjalankan Intersection Observer (Animasi Scroll)
 
 import { useEffect, useState } from "react"
+import { useLanguage } from "@/contexts/language-context"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingActions } from "@/components/floating-actions"
@@ -54,6 +55,7 @@ const Counter = ({ end, duration = 2000 }: { end: number; duration?: number }) =
 }
 
 export default function HomePage() {
+  const { t } = useLanguage()
 
   useEffect(() => {
     const observerOptions = {
@@ -78,11 +80,11 @@ export default function HomePage() {
   const [prevBg, setPrevBg] = useState("/sawah.jpg")
 
   const focusItems = [
-    { icon: TrendingUp, title: "Pertumbuhan Ekonomi Inklusif", image: "/sawah.jpg", delay: "d-1" },
-    { icon: Lightbulb, title: "Literasi Digital", image: "/training-session-in-village-community.jpg", delay: "d-2" },
-    { icon: Handshake, title: "Mata Pencaharian Berkelanjutan", image: "/situ-salawe-lake-tourism-destination.jpg", delay: "d-3" },
-    { icon: Heart, title: "GEDSI (Kesetaraan Sosial)", image: "/delanggu-eco-park-sustainable-tourism.jpg", delay: "d-4" },
-    { icon: Users, title: "Pendekatan Terukur & Teknologi", image: "/training-session-in-village-community.jpg", delay: "d-5" },
+    { icon: TrendingUp, title: t.home.focus1, image: "/sawah.jpg", delay: "d-1" },
+    { icon: Lightbulb, title: t.home.focus2, image: "/training-session-in-village-community.jpg", delay: "d-2" },
+    { icon: Handshake, title: t.home.focus3, image: "/situ-salawe-lake-tourism-destination.jpg", delay: "d-3" },
+    { icon: Heart, title: t.home.focus4, image: "/delanggu-eco-park-sustainable-tourism.jpg", delay: "d-4" },
+    { icon: Users, title: t.home.focus5, image: "/training-session-in-village-community.jpg", delay: "d-5" },
   ]
 
   const handleHover = (newImage: string) => {
@@ -138,23 +140,20 @@ export default function HomePage() {
 
               {/* Font size disesuaikan secara bertahap: 3xl (mobile) -> 6xl (tablet) -> 7xl (desktop) */}
               <h1 className="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 reveal d-2 leading-[1.2] lg:leading-[1.1] drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)] px-2">
-                Penggerak Desa <br className="hidden sm:block" /> Berkelanjutan di Indonesia
+                {t.home.heroTitle}
               </h1>
 
-              {/* Deskripsi: text-base di mobile agar tidak terlalu panjang kebawah */}
               <p className="text-base sm:text-lg lg:text-xl text-white/90 font-medium text-pretty mb-10 max-w-2xl mx-auto leading-relaxed reveal d-3 drop-shadow-md px-4">
-                Membangun potensi lokal, memberdayakan masyarakat, melestarikan kearifan budaya dan lingkungan melalui
-                produk yang inovatif dan kolaboratif
+                {t.home.heroDesc}
               </p>
 
-              {/* Button Group: Full width di mobile, inline di desktop */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center reveal d-4 w-full max-w-xs sm:max-w-none mx-auto">
                 <Button
                   size="lg"
                   className="w-full sm:w-auto px-10 shadow-2xl bg-[#ff8c00] hover:bg-[#e67e22] border-none text-white font-bold h-14 transition-all duration-300 hover:scale-105 active:scale-95"
                   asChild
                 >
-                  <Link href="/kontak">Konsultasi Gratis</Link>
+                  <Link href="/kontak">{t.home.heroCta1}</Link>
                 </Button>
 
                 <Button
@@ -164,7 +163,7 @@ export default function HomePage() {
                   asChild
                 >
                   <Link href="/portfolio" className="flex items-center gap-2">
-                    Lihat Portfolio
+                    {t.home.heroCta2}
                     <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -182,10 +181,8 @@ export default function HomePage() {
 
             {/* Penambahan Title Section */}
             <div className="text-center mb-12 md:mb-16 reveal">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#172317] mb-4">Dampak & Potensi Desa</h2>
-              <p className="text-sm md:text-base text-slate-500 max-w-2xl mx-auto">
-                Data yang menggerakkan kami untuk terus berkontribusi dalam pembangunan desa yang mandiri dan berkelanjutan.
-              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#172317] mb-4">{t.home.statsTitle}</h2>
+              <p className="text-sm md:text-base text-slate-500 max-w-2xl mx-auto">{t.home.statsDesc}</p>
             </div>
 
             {/* Grid Responsive: 1 kolom di HP, 2 kolom di Tablet, 4 kolom di Desktop */}
@@ -200,9 +197,7 @@ export default function HomePage() {
                   <div className="text-3xl font-extrabold mb-2 text-slate-900 flex items-center justify-center">
                     <Counter end={75000} />+
                   </div>
-                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">
-                    Desa di Indonesia yang perlu pemberdayaan
-                  </p>
+                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">{t.home.stat1}</p>
                 </CardContent>
               </Card>
 
@@ -215,9 +210,7 @@ export default function HomePage() {
                   <div className="text-3xl font-extrabold mb-2 text-slate-900 flex items-center justify-center">
                     <Counter end={20} />+
                   </div>
-                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">
-                    Proyek selesai (2021-2025)
-                  </p>
+                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">{t.home.stat2}</p>
                 </CardContent>
               </Card>
 
@@ -230,9 +223,7 @@ export default function HomePage() {
                   <div className="text-3xl font-extrabold mb-2 text-slate-900 flex items-center justify-center">
                     <Counter end={6042} />
                   </div>
-                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">
-                    Desa wisata aktif di Indonesia
-                  </p>
+                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">{t.home.stat3}</p>
                 </CardContent>
               </Card>
 
@@ -245,9 +236,7 @@ export default function HomePage() {
                   <div className="text-3xl font-extrabold mb-2 text-slate-900 flex items-center justify-center">
                     <Counter end={1921} />
                   </div>
-                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">
-                    Desa di Jawa & Bali (target market)
-                  </p>
+                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">{t.home.stat4}</p>
                 </CardContent>
               </Card>
 
@@ -265,8 +254,8 @@ export default function HomePage() {
 
           <div className="container relative z-10 mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
             <div className="text-center mb-12 md:mb-16 reveal d-1">
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4 drop-shadow-lg">Area Fokus Kami</h2>
-              <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed px-4">Lima pilar utama dalam pemberdayaan desa berkelanjutan untuk masa depan Indonesia yang lebih kuat.</p>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4 drop-shadow-lg">{t.home.focusTitle}</h2>
+              <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed px-4">{t.home.focusDesc}</p>
             </div>
 
             {/* Responsive Grid: 2 kolom di mobile, 5 kolom di desktop */}
@@ -303,27 +292,23 @@ export default function HomePage() {
           <div className="container mx-auto max-w-7xl px-6 lg:px-8 text-center">
             <div className="max-w-3xl mx-auto">
               {/* Judul: Naik sedikit saja dari 3xl ke 4xl di desktop */}
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal d-1 text-white">
-                Tentang Kami
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 reveal d-1 text-white">{t.home.aboutTitle}</h2>
 
-              {/* Teks: Ukuran tetap terjaga namun sedikit lebih padat di desktop */}
               <p className="text-lg md:text-xl text-white/95 mb-4 reveal d-2 leading-relaxed">
-                <strong className="text-white">PT. Natadesa Bangun Negeri</strong> adalah perusahaan sosial yang berfokus pada pengembangan desa wisata dan berkelanjutan di Indonesia.
+                <strong className="text-white">PT. Natadesa Bangun Negeri</strong> {t.home.aboutP1}
               </p>
 
               <p className="text-base md:text-lg text-white/80 mb-8 reveal d-3 leading-relaxed">
-                Kami menggunakan pendekatan kolaboratif antara komunitas, pemerintah, dan mitra swasta untuk menciptakan dampak positif yang berkelanjutan bagi masyarakat desa.
+                {t.home.aboutP2}
               </p>
 
               <div className="reveal d-4">
-                {/* Button: Ukuran standar yang solid */}
                 <Button
                   variant="outline"
                   asChild
                   className="bg-[#ff8c00] hover:bg-[#e67e22] text-white border-none px-8 h-12 text-base font-semibold transition-all"
                 >
-                  <Link href="/tentang-kami">Selengkapnya →</Link>
+                  <Link href="/tentang-kami">{t.home.aboutCta}</Link>
                 </Button>
               </div>
             </div>
@@ -333,10 +318,8 @@ export default function HomePage() {
         <section className="py-12 md:py-16 bg-[#ffffff]">
           <div className="container mx-auto max-w-5xl px-6 lg:px-8">
             <div className="text-center mb-10 reveal d-1">
-              <h2 className="text-2xl font-bold tracking-tight text-[#172317] sm:text-3xl mb-2">Solusi Kami</h2>
-              <p className="text-sm md:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                Tiga pilar strategi untuk pemberdayaan desa berkelanjutan
-              </p>
+              <h2 className="text-2xl font-bold tracking-tight text-[#172317] sm:text-3xl mb-2">{t.home.solutionTitle}</h2>
+              <p className="text-sm md:text-base text-slate-500 max-w-2xl mx-auto leading-relaxed">{t.home.solutionDesc}</p>
             </div>
 
             {/* Grid Kartu: Gaya identik dengan Section Dampak */}
@@ -348,12 +331,8 @@ export default function HomePage() {
                   <div className="bg-[#065a45]/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#065a45] transition-all duration-300">
                     <GraduationCap className="h-6 w-6 text-[#065a45] group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-base font-bold mb-2 text-slate-900 leading-tight">
-                    Pilar 1: Peningkatan Kapasitas
-                  </h3>
-                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-2">
-                    Pelatihan dan pendampingan SDM desa dalam pengelolaan bisnis dan pariwisata berkelanjutan.
-                  </p>
+                  <h3 className="text-base font-bold mb-2 text-slate-900 leading-tight">{t.home.pillar1Title}</h3>
+                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-2">{t.home.pillar1Desc}</p>
                 </CardContent>
               </Card>
 
@@ -363,12 +342,8 @@ export default function HomePage() {
                   <div className="bg-[#065a45]/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#065a45] transition-all duration-300">
                     <Smartphone className="h-6 w-6 text-[#065a45] group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-base font-bold mb-2 text-slate-900 leading-tight">
-                    Pilar 2: Integrasi Digital
-                  </h3>
-                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-2">
-                    Digitalisasi proses bisnis dan pemasaran melalui platform teknologi untuk efisiensi pasar.
-                  </p>
+                  <h3 className="text-base font-bold mb-2 text-slate-900 leading-tight">{t.home.pillar2Title}</h3>
+                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-2">{t.home.pillar2Desc}</p>
                 </CardContent>
               </Card>
 
@@ -378,12 +353,8 @@ export default function HomePage() {
                   <div className="bg-[#065a45]/10 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#065a45] transition-all duration-300">
                     <Network className="h-6 w-6 text-[#065a45] group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-base font-bold mb-2 text-slate-900 leading-tight">
-                    Pilar 3: Keterkaitan Pasar
-                  </h3>
-                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-2">
-                    Membangun koneksi dengan pasar dan mitra strategis demi keberlanjutan ekonomi desa.
-                  </p>
+                  <h3 className="text-base font-bold mb-2 text-slate-900 leading-tight">{t.home.pillar3Title}</h3>
+                  <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-2">{t.home.pillar3Desc}</p>
                 </CardContent>
               </Card>
 
@@ -400,11 +371,9 @@ export default function HomePage() {
                 >
                   bisnisdesa.id
                 </Link>
-                {" "} sebagai tulang punggung operasional
+                {" "} {t.home.platformSub}
               </h4>
-              <p className="text-[10px] md:text-sm text-white/70">
-                Solusi digital terintegrasi untuk manajemen desa wisata dan BUMDes
-              </p>
+              <p className="text-[10px] md:text-sm text-white/70">{t.home.platformDesc}</p>
             </div>
           </div>
         </section>
@@ -413,20 +382,16 @@ export default function HomePage() {
         <section className="py-12 md:py-20 bg-white">
           <div className="container mx-auto max-w-7xl px-6 lg:px-8">
             <div className="text-center mb-10 md:mb-14 reveal d-1">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
-                Layanan Utama
-              </h2>
-              <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                Layanan komprehensif untuk pengembangan desa berkelanjutan
-              </p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">{t.home.servicesTitle}</h2>
+              <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">{t.home.servicesDesc}</p>
             </div>
 
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { title: "Rencana Jangka Panjang Desa", icon: FileText, desc: "Penyusunan masterplan dan strategi pengembangan desa wisata yang berkelanjutan.", delay: "d-1" },
-                { title: "Peningkatan Kapasitas", icon: GraduationCap, desc: "Pelatihan SDM desa dalam manajemen, pemasaran, dan operasional bisnis pariwisata.", delay: "d-2" },
-                { title: "Produk Digital", icon: Laptop, desc: "Implementasi sistem digital untuk reservasi, pembayaran, dan manajemen desa.", delay: "d-3" },
-                { title: "Platform Investasi", icon: Briefcase, desc: "Pendampingan dalam pengelolaan keuangan dan pengembangan produk wisata.", delay: "d-4" }
+                { title: t.home.svc1Title, icon: FileText, desc: t.home.svc1Desc, delay: "d-1" },
+                { title: t.home.svc2Title, icon: GraduationCap, desc: t.home.svc2Desc, delay: "d-2" },
+                { title: t.home.svc3Title, icon: Laptop, desc: t.home.svc3Desc, delay: "d-3" },
+                { title: t.home.svc4Title, icon: Briefcase, desc: t.home.svc4Desc, delay: "d-4" }
               ].map((item, index) => (
                 <Card
                   key={index}
@@ -459,10 +424,8 @@ export default function HomePage() {
         <section className="py-12 md:py-20 bg-[#172317] overflow-hidden">
           <div className="container mx-auto max-w-7xl px-6 lg:px-8 mb-8 md:mb-12">
             <div className="text-center reveal d-1">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Portfolio Highlights</h2>
-              <p className="text-slate-300 text-sm md:text-base text-pretty max-w-2xl mx-auto leading-relaxed">
-                Proyek-proyek unggulan yang telah kami kerjakan di seluruh Indonesia
-              </p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">{t.home.portfolioTitle}</h2>
+              <p className="text-slate-300 text-sm md:text-base text-pretty max-w-2xl mx-auto leading-relaxed">{t.home.portfolioDesc}</p>
             </div>
           </div>
 
@@ -540,10 +503,8 @@ export default function HomePage() {
         <section className="py-16 bg-slate-50">
           <div className="container mx-auto max-w-7xl px-6 lg:px-8">
             <div className="text-center mb-12 reveal d-1">
-              <h2 className="text-3xl font-bold mb-4 text-balance text-slate-900">Keunggulan Kompetitif</h2>
-              <p className="text-muted-foreground text-pretty max-w-2xl mx-auto leading-relaxed">
-                Mengapa memilih Natadesa Nusantara sebagai mitra pengembangan desa
-              </p>
+              <h2 className="text-3xl font-bold mb-4 text-balance text-slate-900">{t.home.advantageTitle}</h2>
+              <p className="text-muted-foreground text-pretty max-w-2xl mx-auto leading-relaxed">{t.home.advantageDesc}</p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
@@ -551,10 +512,8 @@ export default function HomePage() {
               <Card className="reveal d-1 border-none shadow-sm bg-[#172317] group transition-all duration-300 ease-out hover:bg-white hover:-translate-y-3 hover:shadow-xl cursor-default">
                 <CardContent className="p-6">
                   <CheckCircle className="h-7 w-7 mb-4 text-green-500 transition-colors duration-300 group-hover:text-yellow-500" />
-                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">Solusi Khusus</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">
-                    Pendekatan customized sesuai karakteristik dan potensi unik setiap desa.
-                  </p>
+                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">{t.home.adv1Title}</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">{t.home.adv1Desc}</p>
                 </CardContent>
               </Card>
 
@@ -562,10 +521,8 @@ export default function HomePage() {
               <Card className="reveal d-2 border-none shadow-sm bg-[#172317] group transition-all duration-300 ease-out hover:bg-white hover:-translate-y-3 hover:shadow-xl cursor-default">
                 <CardContent className="p-6">
                   <Copy className="h-7 w-7 mb-4 text-green-500 transition-colors duration-300 group-hover:text-yellow-500" />
-                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">Model Replikasi</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">
-                    Framework teruji yang dapat diadaptasi untuk berbagai konteks desa di Indonesia.
-                  </p>
+                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">{t.home.adv2Title}</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">{t.home.adv2Desc}</p>
                 </CardContent>
               </Card>
 
@@ -573,10 +530,8 @@ export default function HomePage() {
               <Card className="reveal d-3 border-none shadow-sm bg-[#172317] group transition-all duration-300 ease-out hover:bg-white hover:-translate-y-3 hover:shadow-xl cursor-default">
                 <CardContent className="p-6">
                   <Smartphone className="h-7 w-7 mb-4 text-green-500 transition-colors duration-300 group-hover:text-yellow-500" />
-                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">Integrasi Digital</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">
-                    Platform teknologi bisnisdesa.id untuk operasional dan pemasaran yang efisien.
-                  </p>
+                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">{t.home.adv3Title}</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">{t.home.adv3Desc}</p>
                 </CardContent>
               </Card>
 
@@ -584,10 +539,8 @@ export default function HomePage() {
               <Card className="reveal d-1 border-none shadow-sm bg-[#172317] group transition-all duration-300 ease-out hover:bg-white hover:-translate-y-3 hover:shadow-xl cursor-default">
                 <CardContent className="p-6">
                   <Handshake className="h-7 w-7 mb-4 text-green-500 transition-colors duration-300 group-hover:text-yellow-500" />
-                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">Kemitraan Strategis</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">
-                    Jaringan luas dengan pemerintah, universitas, dan sektor swasta untuk keberlanjutan.
-                  </p>
+                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">{t.home.adv4Title}</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">{t.home.adv4Desc}</p>
                 </CardContent>
               </Card>
 
@@ -595,10 +548,8 @@ export default function HomePage() {
               <Card className="reveal d-2 border-none shadow-sm bg-[#172317] group transition-all duration-300 ease-out hover:bg-white hover:-translate-y-3 hover:shadow-xl cursor-default">
                 <CardContent className="p-6">
                   <UserCheck className="h-7 w-7 mb-4 text-green-500 transition-colors duration-300 group-hover:text-yellow-500" />
-                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">Keterlibatan Komunitas</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">
-                    Pendekatan partisipatif yang memberdayakan masyarakat sebagai aktor utama pembangunan.
-                  </p>
+                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">{t.home.adv5Title}</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">{t.home.adv5Desc}</p>
                 </CardContent>
               </Card>
 
@@ -606,10 +557,8 @@ export default function HomePage() {
               <Card className="reveal d-3 border-none shadow-sm bg-[#172317] group transition-all duration-300 ease-out hover:bg-white hover:-translate-y-3 hover:shadow-xl cursor-default">
                 <CardContent className="p-6">
                   <Award className="h-7 w-7 mb-4 text-green-500 transition-colors duration-300 group-hover:text-yellow-500" />
-                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">Track Record Terbukti</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">
-                    20+ proyek sukses dengan dampak nyata bagi ekonomi dan masyarakat desa.
-                  </p>
+                  <h3 className="text-md font-bold mb-2 text-white transition-colors duration-300 group-hover:text-slate-900">{t.home.adv6Title}</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed transition-colors duration-300 group-hover:text-slate-600">{t.home.adv6Desc}</p>
                 </CardContent>
               </Card>
             </div>
@@ -620,10 +569,8 @@ export default function HomePage() {
         <section className="py-12 md:py-20 bg-white overflow-hidden">
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="text-center mb-10 md:mb-16 reveal d-1">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-slate-900">Mitra & Klien</h2>
-              <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
-                Dipercaya oleh berbagai institusi dan organisasi terkemuka
-              </p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-slate-900">{t.home.partnersTitle}</h2>
+              <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">{t.home.partnersDesc}</p>
             </div>
 
             {/* Container dengan Gradient Fade untuk efek profesional */}
@@ -698,6 +645,7 @@ export default function HomePage() {
                     { name: "BSI", src: "/BSI.png" },
                     { name: "Energi Dagang", src: "/ENERGIDAGANG.png" },
                     { name: "Orra Narupa", src: "/ORRA.png" },
+                    { name: "Bolesca Food", src: "/bolesca-food.jpeg" },
                   ].map((client, i) => (
                     <div key={`r2-${i}`} className="mx-6 md:mx-12 flex flex-col items-center justify-center min-w-[100px] md:min-w-[140px]">
                       <div className="h-12 w-24 md:h-16 md:w-32 relative mb-2 flex items-center justify-center">
@@ -723,6 +671,7 @@ export default function HomePage() {
                     { name: "BSI", src: "/BSI.png" },
                     { name: "Energi Dagang", src: "/ENERGIDAGANG.png" },
                     { name: "Orra Narupa", src: "/ORRA.png" },
+                    { name: "Bolesca Food", src: "/bolesca-food.jpeg" },
                   ].map((client, i) => (
                     <div key={`r2-dup-${i}`} className="mx-6 md:mx-12 flex flex-col items-center justify-center min-w-[100px] md:min-w-[140px]">
                       <div className="h-12 w-24 md:h-16 md:w-32 relative mb-2 flex items-center justify-center">
@@ -778,31 +727,25 @@ export default function HomePage() {
         {/* CTA Section - Hijau #172317 & Button #fa9223 */}
         <section className="py-20 bg-[#172317] text-white">
           <div className="container mx-auto max-w-7xl px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-balance reveal d-1">
-              Siap Membangun Desa Berkelanjutan?
-            </h2>
-            <p className="text-lg mb-8 opacity-80 text-pretty max-w-2xl mx-auto leading-relaxed reveal d-2">
-              Konsultasikan kebutuhan desa Anda dengan tim expert kami
-            </p>
+            <h2 className="text-3xl font-bold mb-4 text-balance reveal d-1">{t.home.ctaTitle}</h2>
+            <p className="text-lg mb-8 opacity-80 text-pretty max-w-2xl mx-auto leading-relaxed reveal d-2">{t.home.ctaDesc}</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center reveal d-3">
-              {/* Button Kuning: Text Putih -> Hover Text Hitam, BG tetap Kuning */}
               <Button
                 size="lg"
                 className="bg-[#fa9223] text-white hover:bg-[#fa9223] hover:text-black font-bold border-none transition-colors duration-200"
                 asChild
               >
-                <Link href="/kontak">Hubungi Kami</Link>
+                <Link href="/kontak">{t.home.ctaContact}</Link>
               </Button>
 
-              {/* Button Outline: Text Putih -> Hover Text Kuning (#fa9223), BG tetap transparan */}
               <Button
                 size="lg"
                 variant="outline"
                 className="bg-transparent border-white text-white hover:bg-transparent hover:text-[#fa9223] hover:border-[#fa9223] transition-colors duration-200"
                 asChild
               >
-                <a href="#">Download Company Profile</a>
+                <a href="#">{t.home.ctaDownload}</a>
               </Button>
             </div>
           </div>

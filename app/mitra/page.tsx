@@ -1,10 +1,14 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingActions } from "@/components/floating-actions"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Building2, GraduationCap, Briefcase, Users } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function MitraPage() {
+  const { t } = useLanguage()
   const bumdesMitra = ["BUM Desa Tirta Mandiri"]
 
   const universitasMitra = ["Universitas Jenderal Soedirman", "Politeknik Negeri Samarinda", "Universitas Surakarta"]
@@ -25,10 +29,8 @@ export default function MitraPage() {
         <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-accent/10">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl font-bold mb-6 text-balance">Rekanan Bisnis</h1>
-              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-                Kemitraan Strategis - Kolaborasi lintas sektor untuk memperkuat skala & keberlanjutan
-              </p>
+              <h1 className="text-4xl font-bold mb-6 text-balance">{t.mitra.heroTitle}</h1>
+              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">{t.mitra.heroDesc}</p>
             </div>
           </div>
         </section>
@@ -54,7 +56,7 @@ export default function MitraPage() {
               <Card>
                 <CardHeader>
                   <Users className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Mitra BUMDes</CardTitle>
+                  <CardTitle>{t.mitra.bumdesTitle}</CardTitle>
                   <CardDescription>Badan Usaha Milik Desa</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -73,7 +75,7 @@ export default function MitraPage() {
               <Card>
                 <CardHeader>
                   <GraduationCap className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Mitra Universitas</CardTitle>
+                  <CardTitle>{t.mitra.univTitle}</CardTitle>
                   <CardDescription>Institusi Pendidikan Tinggi</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -92,7 +94,7 @@ export default function MitraPage() {
               <Card className="lg:col-span-1 md:col-span-2">
                 <CardHeader>
                   <Building2 className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>Mitra Korporat</CardTitle>
+                  <CardTitle>{t.mitra.corporateTitle}</CardTitle>
                   <CardDescription>Perusahaan & Organisasi Bisnis</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -117,7 +119,7 @@ export default function MitraPage() {
               <Card className="border-primary">
                 <CardHeader className="text-center">
                   <Briefcase className="h-16 w-16 text-primary mb-4 mx-auto" />
-                  <CardTitle className="text-2xl">Bergabung sebagai Mitra</CardTitle>
+                  <CardTitle className="text-2xl">{t.mitra.ctaTitle}</CardTitle>
                   <CardDescription className="text-base">
                     Kami terbuka untuk kolaborasi dengan berbagai organisasi yang memiliki visi yang sama dalam
                     pemberdayaan desa

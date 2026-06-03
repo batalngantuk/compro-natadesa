@@ -6,6 +6,7 @@ import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -14,36 +15,37 @@ export function Header() {
   const [portfolioOpen, setPortfolioOpen] = useState(false)
 
   const pathname = usePathname()
+  const { lang, setLang, t } = useLanguage()
 
   const navigation = [
-    { name: "Beranda", href: "/" },
+    { name: t.nav.home, href: "/" },
     {
-      name: "Tentang Kami",
+      name: t.nav.about,
       href: "/tentang-kami",
       submenu: [
-        { name: "Profil Perusahaan", href: "/tentang-kami" },
-        { name: "Solusi & Framework", href: "/solusi" },
-        { name: "Analisis Bisnis", href: "/analisis" },
+        { name: t.nav.companyProfile, href: "/tentang-kami" },
+        { name: t.nav.solutions, href: "/solusi" },
+        { name: t.nav.analysis, href: "/analisis" },
       ],
     },
     {
-      name: "Layanan",
+      name: t.nav.services,
       href: "/layanan",
       submenu: [
-        { name: "Layanan Kami", href: "/layanan" },
-        { name: "Platform Bisnisdesa.id", href: "/platform" },
+        { name: t.nav.services, href: "/layanan" },
+        { name: t.nav.platform, href: "/platform" },
       ],
     },
     {
-      name: "Portfolio",
+      name: t.nav.portfolio,
       href: "/portfolio",
       submenu: [
-        { name: "Proyek Kami", href: "/portfolio" },
-        { name: "Mitra", href: "/mitra" },
+        { name: t.nav.projects, href: "/portfolio" },
+        { name: t.nav.partners, href: "/mitra" },
       ],
     },
-    { name: "Artikel", href: "/artikel" },
-    { name: "Kontak", href: "/kontak" },
+    { name: t.nav.articles, href: "/artikel" },
+    { name: t.nav.contact, href: "/kontak" },
   ]
 
   return (
@@ -115,9 +117,18 @@ export function Header() {
           })}
         </div>
 
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4 items-center">
+          <button
+            onClick={() => setLang(lang === "id" ? "en" : "id")}
+            className="flex items-center gap-1 text-xs font-semibold border border-gray-200 rounded-full px-3 py-1 hover:bg-gray-50 transition-colors"
+            aria-label="Toggle language"
+          >
+            <span className={lang === "id" ? "text-primary font-bold" : "text-slate-400"}>ID</span>
+            <span className="text-slate-300">|</span>
+            <span className={lang === "en" ? "text-primary font-bold" : "text-slate-400"}>EN</span>
+          </button>
           <Button variant="default" size="sm" className="font-semibold transition-transform active:scale-95" asChild>
-            <Link href="/kontak">Konsultasi Gratis</Link>
+            <Link href="/kontak">{t.nav.freeConsult}</Link>
           </Button>
         </div>
       </nav>
@@ -133,15 +144,15 @@ export function Header() {
                   <button
                     className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium hover:bg-gray-100 ${isActive ? 'text-primary' : 'text-foreground'}`}
                     onClick={() => {
-                      if (item.name === "Tentang Kami") setTentangKamiOpen(!tentangKamiOpen)
-                      else if (item.name === "Layanan") setLayananOpen(!layananOpen)
-                      else if (item.name === "Portfolio") setPortfolioOpen(!portfolioOpen)
+                      if (item.href === "/tentang-kami") setTentangKamiOpen(!tentangKamiOpen)
+                      else if (item.href === "/layanan") setLayananOpen(!layananOpen)
+                      else if (item.href === "/portfolio") setPortfolioOpen(!portfolioOpen)
                     }}
                   >
                     {item.name}
-                    <ChevronDown className={`h-4 w-4 transition-transform ${((item.name === "Tentang Kami" && tentangKamiOpen) || (item.name === "Layanan" && layananOpen) || (item.name === "Portfolio" && portfolioOpen)) ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`h-4 w-4 transition-transform ${((item.href === "/tentang-kami" && tentangKamiOpen) || (item.href === "/layanan" && layananOpen) || (item.href === "/portfolio" && portfolioOpen)) ? "rotate-180" : ""}`} />
                   </button>
-                  {((item.name === "Tentang Kami" && tentangKamiOpen) || (item.name === "Layanan" && layananOpen) || (item.name === "Portfolio" && portfolioOpen)) && (
+                  {((item.href === "/tentang-kami" && tentangKamiOpen) || (item.href === "/layanan" && layananOpen) || (item.href === "/portfolio" && portfolioOpen)) && (
                     <div className="ml-4 space-y-1 mt-1 border-l border-gray-200 pl-2">
                       {item.submenu.map((subitem) => (
                         <Link
@@ -167,9 +178,17 @@ export function Header() {
                 </Link>
               );
             })}
-            <div className="pt-4 pb-2 px-3">
+            <div className="pt-4 pb-2 px-3 flex flex-col gap-2">
+              <button
+                onClick={() => setLang(lang === "id" ? "en" : "id")}
+                className="flex items-center gap-1 text-xs font-semibold border border-gray-200 rounded-full px-3 py-1 w-fit hover:bg-gray-50 transition-colors"
+              >
+                <span className={lang === "id" ? "text-primary font-bold" : "text-slate-400"}>ID</span>
+                <span className="text-slate-300">|</span>
+                <span className={lang === "en" ? "text-primary font-bold" : "text-slate-400"}>EN</span>
+              </button>
               <Button size="sm" className="w-full font-bold" asChild>
-                <Link href="/kontak">Konsultasi Gratis</Link>
+                <Link href="/kontak">{t.nav.freeConsult}</Link>
               </Button>
             </div>
           </div>

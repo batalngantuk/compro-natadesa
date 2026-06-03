@@ -9,6 +9,7 @@ import { TrendingUp, Target, MapPin, CheckCircle, AlertCircle, Lightbulb, Shield
 import { motion, useInView } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
+import { useLanguage } from "@/contexts/language-context"
 
 // --- KOMPONEN COUNTER ---
 // Menangani animasi angka berjalan dengan pembersihan string yang aman
@@ -54,6 +55,7 @@ function Counter({ value, duration = 2 }) {
 }
 
 export default function AnalisisPage() {
+  const { t } = useLanguage()
   const swot = {
     strengths: [
       "Pengalaman dalam konsultasi desa",

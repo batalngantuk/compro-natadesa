@@ -2,6 +2,7 @@
 
 import type React from "react"
 
+import { useLanguage } from "@/contexts/language-context"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingActions } from "@/components/floating-actions"
@@ -14,6 +15,7 @@ import { Phone, Mail, MapPin, Globe } from "lucide-react"
 import { useState } from "react"
 
 export default function KontakPage() {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,7 +26,7 @@ export default function KontakPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert("Terima kasih! Pesan Anda telah dikirim. Tim kami akan segera menghubungi Anda.")
+    alert(t.contact.successAlert)
     setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
   }
 
@@ -36,10 +38,8 @@ export default function KontakPage() {
         <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-accent/10">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl font-bold mb-6 text-balance">Kontak Kami</h1>
-              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-                Kami menyambut baik kolaborasi dan kemitraan untuk pembangunan desa berkelanjutan
-              </p>
+              <h1 className="text-4xl font-bold mb-6 text-balance">{t.contact.heroTitle}</h1>
+              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">{t.contact.heroDesc}</p>
             </div>
           </div>
         </section>
@@ -52,28 +52,28 @@ export default function KontakPage() {
               <div className="space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Informasi Kontak</CardTitle>
-                    <CardDescription>Hubungi kami melalui saluran berikut</CardDescription>
+                    <CardTitle>{t.contact.infoTitle}</CardTitle>
+                    <CardDescription>{t.contact.infoDesc}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-start gap-3">
                       <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold mb-1">Telepon</p>
+                        <p className="font-semibold mb-1">{t.contact.phone}</p>
                         <p className="text-muted-foreground">0882-0063-78745</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold mb-1">Email</p>
+                        <p className="font-semibold mb-1">{t.contact.email}</p>
                         <p className="text-muted-foreground">hello@bisnisdesa.id</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Globe className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold mb-1">Website</p>
+                        <p className="font-semibold mb-1">{t.contact.website}</p>
                         <p className="text-muted-foreground">www.natadesanusantara.com</p>
                         <p className="text-muted-foreground">www.bisnisdesa.id</p>
                       </div>
@@ -131,67 +131,65 @@ export default function KontakPage() {
               {/* Contact Form */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Kirim Pesan</CardTitle>
-                  <CardDescription>Isi formulir di bawah ini untuk konsultasi gratis</CardDescription>
+                  <CardTitle>{t.contact.formTitle}</CardTitle>
+                  <CardDescription>{t.contact.formDesc}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Nama Lengkap *</Label>
+                      <Label htmlFor="name">{t.contact.nameLabel}</Label>
                       <Input
                         id="name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Masukkan nama lengkap Anda"
+                        placeholder={t.contact.namePlaceholder}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
+                      <Label htmlFor="email">{t.contact.emailLabel}</Label>
                       <Input
                         id="email"
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="nama@email.com"
+                        placeholder={t.contact.emailPlaceholder}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Nomor Telepon *</Label>
+                      <Label htmlFor="phone">{t.contact.phoneLabel}</Label>
                       <Input
                         id="phone"
                         type="tel"
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="08xx-xxxx-xxxx"
+                        placeholder={t.contact.phonePlaceholder}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subjek *</Label>
+                      <Label htmlFor="subject">{t.contact.subjectLabel}</Label>
                       <Input
                         id="subject"
                         required
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        placeholder="Perihal pesan Anda"
+                        placeholder={t.contact.subjectPlaceholder}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="message">Pesan *</Label>
+                      <Label htmlFor="message">{t.contact.messageLabel}</Label>
                       <Textarea
                         id="message"
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Ceritakan kebutuhan Anda..."
+                        placeholder={t.contact.messagePlaceholder}
                         rows={5}
                       />
                     </div>
-                    <Button type="submit" className="w-full" size="lg">
-                      Kirim Pesan
-                    </Button>
+                    <Button type="submit" className="w-full" size="lg">{t.contact.submitBtn}</Button>
                   </form>
                 </CardContent>
               </Card>

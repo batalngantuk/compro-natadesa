@@ -1,8 +1,13 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="border-t bg-white">
       <div className="max-w-7xl mx-auto px-6 py-16 lg:px-8">
@@ -22,41 +27,39 @@ export function Footer() {
               />
             </div>
             <p className="text-sm font-bold text-slate-900 mb-2">PT. Natadesa Bangun Negeri</p>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              Penggerak desa berkelanjutan di Indonesia melalui inovasi dan kolaborasi.
-            </p>
+            <p className="text-sm text-slate-500 leading-relaxed">{t.footer.tagline}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wider">Tautan Cepat</h4>
+            <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wider">{t.footer.quickLinks}</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/tentang-kami" className="text-slate-500 hover:text-[#172317] transition-colors">Tentang Kami</Link></li>
-              <li><Link href="/layanan" className="text-slate-500 hover:text-[#172317] transition-colors">Layanan</Link></li>
-              <li><Link href="/solusi" className="text-slate-500 hover:text-[#172317] transition-colors">Solusi</Link></li>
-              <li><Link href="/portfolio" className="text-slate-500 hover:text-[#172317] transition-colors">Portfolio</Link></li>
-              <li><Link href="/platform" className="text-slate-500 hover:text-[#172317] transition-colors">Platform</Link></li>
-              <li><Link href="/analisis" className="text-slate-500 hover:text-[#172317] transition-colors">Analisis</Link></li>
-              <li><Link href="/mitra" className="text-slate-500 hover:text-[#172317] transition-colors">Mitra</Link></li>
-              <li><Link href="/artikel" className="text-slate-500 hover:text-[#172317] transition-colors">Artikel</Link></li>
+              <li><Link href="/tentang-kami" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.about}</Link></li>
+              <li><Link href="/layanan" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.services}</Link></li>
+              <li><Link href="/solusi" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.solutions}</Link></li>
+              <li><Link href="/portfolio" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.portfolio}</Link></li>
+              <li><Link href="/platform" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.platform}</Link></li>
+              <li><Link href="/analisis" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.analysis}</Link></li>
+              <li><Link href="/mitra" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.partners}</Link></li>
+              <li><Link href="/artikel" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.articles}</Link></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wider">Legal</h4>
+            <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wider">{t.footer.legal}</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/karir" className="text-slate-500 hover:text-[#172317] transition-colors">Karir</Link></li>
-              <li><Link href="/faq" className="text-slate-500 hover:text-[#172317] transition-colors">FAQ</Link></li>
-              <li><Link href="/privacy-policy" className="text-slate-500 hover:text-[#172317] transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms-of-service" className="text-slate-500 hover:text-[#172317] transition-colors">Terms of Service</Link></li>
-              <li><Link href="/sitemap" className="text-slate-500 hover:text-[#172317] transition-colors">Sitemap</Link></li>
+              <li><Link href="/karir" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.careers}</Link></li>
+              <li><Link href="/faq" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.faq}</Link></li>
+              <li><Link href="/privacy-policy" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.privacy}</Link></li>
+              <li><Link href="/terms-of-service" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.terms}</Link></li>
+              <li><Link href="/sitemap" className="text-slate-500 hover:text-[#172317] transition-colors">{t.footer.sitemap}</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wider">Kontak</h4>
+            <h4 className="font-bold text-slate-900 mb-6 text-sm uppercase tracking-wider">{t.footer.contact}</h4>
             <ul className="space-y-4 text-sm text-slate-500">
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-[#172317]" />
@@ -104,7 +107,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t pt-8 text-center text-xs text-slate-400">
-          <p>&copy; {new Date().getFullYear()} PT Natadesa Bangun Negeri. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {t.footer.copyright}</p>
         </div>
       </div>
     </footer>

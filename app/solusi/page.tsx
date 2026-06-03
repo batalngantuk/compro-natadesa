@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button"
 import { AlertCircle, TrendingUp, Laptop, LinkIcon, Target, Copy, Globe, Handshake, Heart, Award } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function SolusiPage() {
+  const { t } = useLanguage()
   const problems = [
     {
       icon: AlertCircle,
