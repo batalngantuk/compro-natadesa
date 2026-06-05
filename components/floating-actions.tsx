@@ -13,7 +13,7 @@ export function FloatingActions() {
       <Button
         size="icon"
         className="h-12 w-12 rounded-full shadow-lg bg-[#25D366] hover:bg-[#20BA5A] text-white"
-        onClick={() => window.open("https://wa.me/6288200637845", "_blank")}
+        onClick={() => window.open("https://wa.me/62882006378745", "_blank")}
       >
         <MessageCircle className="h-5 w-5" />
         <span className="sr-only">{t.floating.whatsapp}</span>
