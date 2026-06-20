@@ -45,8 +45,9 @@ export default function LayananPage() {
 
   const services = [
     {
+      id: "perencanaan-bisnis",
       icon: MapIcon,
-      title: "Rencana Jangka Panjang Desa",
+      title: "Perencanaan Bisnis",
       tagline: "Pembangunan desa yang strategis",
       description:
         "Pemetaan partisipatif, perencanaan, implementasi, dan peta jalan keberlanjutan untuk pertumbuhan desa",
@@ -75,8 +76,9 @@ export default function LayananPage() {
       link: "#",
     },
     {
+      id: "peningkatan-kapasitas",
       icon: Users,
-      title: "Peningkatan Kapasitas ",
+      title: "Peningkatan Kapasitas",
       tagline: "Pengembangan keterampilan untuk daya saing",
       description:
         "Program-program keterampilan teknis & non-teknis, pelatihan manajerial, dan literasi digital yang disesuaikan untuk usaha di daerah pedesaan",
@@ -133,8 +135,9 @@ export default function LayananPage() {
       link: "https://pelatihanbynatadesa.vercel.app/",
     },
     {
+      id: "smart-desa",
       icon: Laptop,
-      title: "Produk Digital",
+      title: "Smart Desa",
       tagline: "Alat untuk operasional yang transparan",
       description:
         "Situs web, media sosial, POS/ERP, dan marketplace melalui bisnisdesa.id untuk memungkinkan operasional yang efisien dalam kondisi konektivitas rendah",
@@ -219,8 +222,9 @@ export default function LayananPage() {
       link: "https://platformbumdes-natadesa.vercel.app/",
     },
     {
+      id: "platform-trustfund",
       icon: Briefcase,
-      title: "Platform Investasi",
+      title: "Platform Trustfund",
       tagline: "Dari konsep hingga operasional",
       description: "Usaha pariwisata, agrowisata, kesehatan, budaya, dan lingkungan dengan panduan menyeluruh",
       businessPlanning: [
@@ -501,11 +505,12 @@ export default function LayananPage() {
               {services.map((service, index) => (
                 <motion.div
                   key={index}
+                  id={service.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex flex-col h-full"
+                  className="flex flex-col h-full scroll-mt-24"
                 >
                   <Card className="flex flex-col h-full transition-shadow hover:shadow-lg rounded-none border-primary/20">
                     <CardHeader className="flex-none">

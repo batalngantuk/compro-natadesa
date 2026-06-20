@@ -388,32 +388,33 @@ export default function HomePage() {
 
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { title: t.home.svc1Title, icon: FileText, desc: t.home.svc1Desc, delay: "d-1" },
-                { title: t.home.svc2Title, icon: GraduationCap, desc: t.home.svc2Desc, delay: "d-2" },
-                { title: t.home.svc3Title, icon: Laptop, desc: t.home.svc3Desc, delay: "d-3" },
-                { title: t.home.svc4Title, icon: Briefcase, desc: t.home.svc4Desc, delay: "d-4" }
+                { title: t.home.svc1Title, icon: FileText, desc: t.home.svc1Desc, delay: "d-1", href: "/layanan#perencanaan-bisnis" },
+                { title: t.home.svc2Title, icon: GraduationCap, desc: t.home.svc2Desc, delay: "d-2", href: "/layanan#peningkatan-kapasitas" },
+                { title: t.home.svc3Title, icon: Laptop, desc: t.home.svc3Desc, delay: "d-3", href: "/layanan#smart-desa" },
+                { title: t.home.svc4Title, icon: Briefcase, desc: t.home.svc4Desc, delay: "d-4", href: "/layanan#platform-trustfund" }
               ].map((item, index) => (
-                <Card
-                  key={index}
-                  className={`reveal ${item.delay} border border-slate-100 bg-white group transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#065a45] hover:shadow-[0_15px_30px_-10px_rgba(6,90,69,0.2)] cursor-default overflow-hidden`}
-                >
-                  <CardContent className="pt-8 pb-8 px-6 flex flex-col items-center text-center h-full">
-                    {/* Icon Container */}
-                    <div className="bg-[#172317]/5 w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#065a45]/10">
-                      <item.icon className="h-7 w-7 text-[#172317] transition-colors duration-300 group-hover:text-[#065a45]" />
-                    </div>
+                <Link key={index} href={item.href}>
+                  <Card
+                    className={`reveal ${item.delay} border border-slate-100 bg-white group transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#065a45] hover:shadow-[0_15px_30px_-10px_rgba(6,90,69,0.2)] cursor-pointer overflow-hidden h-full`}
+                  >
+                    <CardContent className="pt-8 pb-8 px-6 flex flex-col items-center text-center h-full">
+                      {/* Icon Container */}
+                      <div className="bg-[#172317]/5 w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#065a45]/10">
+                        <item.icon className="h-7 w-7 text-[#172317] transition-colors duration-300 group-hover:text-[#065a45]" />
+                      </div>
 
-                    {/* Title */}
-                    <h3 className="text-lg font-bold mb-3 text-slate-900 transition-colors duration-300 group-hover:text-[#065a45] leading-tight">
-                      {item.title}
-                    </h3>
+                      {/* Title */}
+                      <h3 className="text-lg font-bold mb-3 text-slate-900 transition-colors duration-300 group-hover:text-[#065a45] leading-tight">
+                        {item.title}
+                      </h3>
 
-                    {/* Description */}
-                    <p className="text-slate-500 text-xs md:text-sm font-medium leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </CardContent>
-                </Card>
+                      {/* Description */}
+                      <p className="text-slate-500 text-xs md:text-sm font-medium leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
