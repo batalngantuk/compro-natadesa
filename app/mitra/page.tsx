@@ -4,22 +4,57 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { FloatingActions } from "@/components/floating-actions"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Building2, GraduationCap, Briefcase, Users } from "lucide-react"
+import { Building2, Briefcase, Handshake, HeartHandshake } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+
+const investasiB2B = [
+  { name: "Extragen", desc: "Pupuk Cair Organik" },
+  { name: "Bolesca Food", desc: "Frozen Food" },
+  { name: "Rodagilas", desc: "Merchandise" },
+  { name: "Dua Kawan Digital", desc: "IT Solution" },
+  { name: "Konten Keren", desc: "Media Social Management" },
+  { name: "Orra Narupa", desc: "Design, Interior & Contractor" },
+  { name: "Marani Pangan", desc: "Agriculture Companies" },
+  { name: "Kedung Sumber Panguripan", desc: "Konsultan Pendamping Desa" },
+]
+
+const csrMitra = [
+  "Bank Syariah Indonesia (BSI)",
+  "Bank Negara Indonesia (BNI)",
+  "PT. Tirta Investama (Aqua)",
+  "PT. Rimba Raya Conservation",
+]
+
+const partnershipMitra = [
+  "Asosiasi Pemerintah Desa Seluruh Indonesia (APDESI)",
+  "Solo Techno Park (STP)",
+  "Universitas Jendral Soedirman",
+  "Universitas Surakarta",
+  "Universitas Aisyah Jogyakarta",
+  "Universitas Politeknik Negeri Samarinda",
+  "Pemerintah Desa Barudua",
+  "Pemerintah Desa Cisitu",
+  "Pemerintah Desa Grenggeng",
+  "Pemerintah Desa Gatak",
+  "Pemerintah Desa Ponggok",
+  "Pemerintah Desa Sidowayah",
+  "Pemerintah Desa Muara Muntai Ilir",
+  "Pemerintah Desa Bumi Etam",
+  "Bumdesa Tirta Mandiri",
+  "Bumdesa Sinergi",
+  "Bumdes Gatak Mandiri Sejahterah",
+  "Bumdes Artha Desa",
+  "Bumdes Citra Mandiri Sejahtera",
+  "Bumdes Mitra Sejahtera",
+  "Bumdes Bumi Etam Sejahtera",
+  "Bumdes Mandiri Sakti",
+  "Koperasi Desa Merah Putih Bentangan",
+  "Koperasi Desa Merah Putih Ponggok",
+  "Koperasi Desa Merah Putih Sidowayah",
+]
 
 export default function MitraPage() {
   const { t } = useLanguage()
-  const bumdesMitra = ["BUM Desa Tirta Mandiri"]
-
-  const universitasMitra = ["Universitas Jenderal Soedirman", "Politeknik Negeri Samarinda", "Universitas Surakarta"]
-
-  const korporatMitra = [
-    "PT. Kedung Sumber Panguripan",
-    "Delanggu Eco Park",
-    "CV. Energi Dagang Anak Negeri",
-    "PT. Dolan Kreasi Indonesia",
-    "PT. Dua Kawan Digital",
-  ]
 
   return (
     <>
@@ -35,80 +70,73 @@ export default function MitraPage() {
           </div>
         </section>
 
-        {/* Partnership Statement */}
-        <section className="py-16">
-          <div className="container max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Kemitraan lintas sektor untuk memperkuat skala & keberlanjutan. Keterlibatan warga dari awal untuk rasa
-                memiliki yang kuat. Kami bekerja sama dengan berbagai pihak untuk menciptakan dampak yang lebih besar
-                dan berkelanjutan.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Partners Grid */}
         <section className="py-16 bg-muted/30">
-          <div className="container max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-              {/* BUMDes Partners */}
+          <div className="container max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
+
+            {/* Row 1: Investasi & CSR */}
+            <div className="grid gap-8 md:grid-cols-2">
+              {/* Investasi & B2B */}
               <Card>
                 <CardHeader>
-                  <Users className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>{t.mitra.bumdesTitle}</CardTitle>
-                  <CardDescription>Badan Usaha Milik Desa</CardDescription>
+                  <Building2 className="h-10 w-10 text-primary mb-3" />
+                  <CardTitle>{t.mitra.investasiTitle}</CardTitle>
+                  <CardDescription>Entitas bisnis dan investasi strategis Natadesa</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {bumdesMitra.map((mitra, index) => (
+                    {investasiB2B.map((item, index) => (
                       <li key={index} className="flex items-start gap-2 text-sm">
-                        <span className="text-primary mt-1">•</span>
-                        <span>{mitra}</span>
+                        <span className="text-primary mt-0.5 shrink-0">•</span>
+                        <span>
+                          <span className="font-medium">{item.name}</span>
+                          <span className="text-muted-foreground"> — {item.desc}</span>
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
               </Card>
 
-              {/* University Partners */}
+              {/* CSR */}
               <Card>
                 <CardHeader>
-                  <GraduationCap className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>{t.mitra.univTitle}</CardTitle>
-                  <CardDescription>Institusi Pendidikan Tinggi</CardDescription>
+                  <HeartHandshake className="h-10 w-10 text-primary mb-3" />
+                  <CardTitle>{t.mitra.csrTitle}</CardTitle>
+                  <CardDescription>Institusi pendukung program CSR desa</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {universitasMitra.map((mitra, index) => (
+                    {csrMitra.map((item, index) => (
                       <li key={index} className="flex items-start gap-2 text-sm">
-                        <span className="text-primary mt-1">•</span>
-                        <span>{mitra}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              {/* Corporate Partners */}
-              <Card className="lg:col-span-1 md:col-span-2">
-                <CardHeader>
-                  <Building2 className="h-12 w-12 text-primary mb-4" />
-                  <CardTitle>{t.mitra.corporateTitle}</CardTitle>
-                  <CardDescription>Perusahaan & Organisasi Bisnis</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {korporatMitra.map((mitra, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm">
-                        <span className="text-primary mt-1">•</span>
-                        <span>{mitra}</span>
+                        <span className="text-primary mt-0.5 shrink-0">•</span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
               </Card>
             </div>
+
+            {/* Row 2: Partnership (full width) */}
+            <Card>
+              <CardHeader>
+                <Handshake className="h-10 w-10 text-primary mb-3" />
+                <CardTitle>{t.mitra.partnershipTitle}</CardTitle>
+                <CardDescription>Jaringan kemitraan pemerintah desa, BUMDes, perguruan tinggi, dan koperasi</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {partnershipMitra.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm">
+                      <span className="text-primary mt-0.5 shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
           </div>
         </section>
 
@@ -120,10 +148,7 @@ export default function MitraPage() {
                 <CardHeader className="text-center">
                   <Briefcase className="h-16 w-16 text-primary mb-4 mx-auto" />
                   <CardTitle className="text-2xl">{t.mitra.ctaTitle}</CardTitle>
-                  <CardDescription className="text-base">
-                    Kami terbuka untuk kolaborasi dengan berbagai organisasi yang memiliki visi yang sama dalam
-                    pemberdayaan desa
-                  </CardDescription>
+                  <CardDescription className="text-base">{t.mitra.ctaDesc}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid gap-4 md:grid-cols-3 text-center">
