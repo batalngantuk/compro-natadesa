@@ -219,7 +219,7 @@ export default function LayananPage() {
         "Affordable pricing untuk desa",
       ],
       cta: "Akses Platform BUMDes",
-      link: "https://platformbumdes-natadesa.vercel.app/",
+      link: "https://smartdesa-neon.vercel.app/",
     },
     {
       id: "platform-trustfund",
