@@ -218,7 +218,7 @@ export default function LayananPage() {
         "Cloud-based dengan offline capability",
         "Affordable pricing untuk desa",
       ],
-      cta: "Akses Platform BUMDes",
+      cta: "Kunjungi Smart Desa",
       link: "https://smartdesa-neon.vercel.app/",
     },
     {
