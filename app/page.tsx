@@ -365,7 +365,7 @@ export default function HomePage() {
               <h4 className="text-sm md:text-lg font-bold text-white mb-2 leading-snug">
                 Platform {" "}
                 <Link
-                  href="https://bisnisdesa.id"
+                  href="https://v0-nata-desa.vercel.app/"
                   target="_blank"
                   className="text-[#fa9223] hover:text-[#ffb366] underline decoration-2 underline-offset-4 transition-all font-extrabold"
                 >

@@ -31,7 +31,7 @@ const articles = [
     date: "15 Jan 2026",
     readTime: "5 min",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-    url: "https://bisnisdesa.id",
+    url: "https://v0-nata-desa.vercel.app/",
     source: "Natadesa News"
   },
   {

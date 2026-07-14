@@ -75,7 +75,7 @@ export default function KontakPage() {
                       <div>
                         <p className="font-semibold mb-1">{t.contact.website}</p>
                         <p className="text-muted-foreground">www.natadesanusantara.com</p>
-                        <p className="text-muted-foreground">www.bisnisdesa.id</p>
+                        <p className="text-muted-foreground">v0-nata-desa.vercel.app</p>
                       </div>
                     </div>
                   </CardContent>

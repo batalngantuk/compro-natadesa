@@ -210,7 +210,7 @@ export default function PlatformPage() {
                 className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
                 asChild
               >
-                <Link href="https://bisnisdesa.id" target="_blank" rel="noopener noreferrer">
+                <Link href="https://v0-nata-desa.vercel.app/" target="_blank" rel="noopener noreferrer">
                   Kunjungi bisnisdesa.id
                 </Link>
               </Button>

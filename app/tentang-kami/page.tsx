@@ -318,7 +318,7 @@ export default function TentangKamiPage() {
                     <div>
                       <p className="font-medium text-xs text-white-200 uppercase tracking-wider mb-1">Website</p>
                       <div className="flex flex-wrap gap-2 text-base">
-                        <Link href="https://bisnisdesa.id" className="text-yellow-400 hover:text-yellow-300 transition-colors underline-offset-4 hover:underline">
+                        <Link href="https://v0-nata-desa.vercel.app/" className="text-yellow-400 hover:text-yellow-300 transition-colors underline-offset-4 hover:underline">
                           bisnisdesa.id
                         </Link>
                         <span className="text-green-400">•</span>
@@ -565,7 +565,7 @@ export default function TentangKamiPage() {
               <p className="text-green-50/80 max-w-3xl mx-auto text-pretty leading-relaxed">
                 Natadesa beroperasi di bidang teknologi dan pemberdayaan masyarakat. Melalui platform{" "}
                 <a
-                  href="https://bisnisdesa.id"
+                  href="https://v0-nata-desa.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-[#E67E22] hover:text-yellow-500 underline underline-offset-4 decoration-yellow-400 transition-colors"
