@@ -291,7 +291,7 @@ export default function LayananPage() {
         { name: "Premium", desc: "Full management + ongoing support" },
       ],
       cta: "Kunjungi Bisnisdesa.id",
-      link: "https://bisnisdesa.id",
+      link: "https://v0-nata-desa.vercel.app/",
     },
   ]
 
