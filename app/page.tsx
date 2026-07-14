@@ -591,7 +591,7 @@ export default function HomePage() {
                     { name: "UNISA", src: "/UNISA.png" },
                     { name: "BUM Des Tirta Mandiri", src: "/TIRTAMANDIRI.png" },
                     { name: "Biofertilizer EXTRAGEN", src: "/EXTRAGEN.png" },
-                    { name: "Solo TechnoPark", src: "/solotech.JPG" },
+                    { name: "Solo TechnoPark", src: "/solotech.jpg" },
                   ].map((client, i) => (
                     <div key={`r1-${i}`} className="mx-6 md:mx-12 flex flex-col items-center justify-center min-w-[100px] md:min-w-[140px]">
                       <div className="h-12 w-24 md:h-16 md:w-32 relative mb-2 flex items-center justify-center">
@@ -617,7 +617,7 @@ export default function HomePage() {
                     { name: "UNISA", src: "/UNISA.png" },
                     { name: "BUM Des Tirta Mandiri", src: "/TIRTAMANDIRI.png" },
                     { name: "Biofertilizer EXTRAGEN", src: "/EXTRAGEN.png" },
-                    { name: "Solo TechnoPark", src: "/solotech.JPG" },
+                    { name: "Solo TechnoPark", src: "/solotech.jpg" },
                   ].map((client, i) => (
                     <div key={`r1-dup-${i}`} className="mx-6 md:mx-12 flex flex-col items-center justify-center min-w-[100px] md:min-w-[140px]">
                       <div className="h-12 w-24 md:h-16 md:w-32 relative mb-2 flex items-center justify-center">
