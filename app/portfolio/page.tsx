@@ -18,7 +18,7 @@ import { allProjects, Project } from "@/data/projects"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function PortfolioPage() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedYear, setSelectedYear] = useState("all")
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -44,9 +44,9 @@ export default function PortfolioPage() {
         <section className="py-20 border-b bg-muted/30">
           <div className="container max-w-7xl mx-auto px-6">
             <div className="max-w-3xl">
-              <h1 className="text-4xl font-bold tracking-tight mb-4 text-foreground">Portfolio proyek</h1>
+              <h1 className="text-4xl font-bold tracking-tight mb-4 text-foreground">{t.portfolio.heroTitle}</h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Kumpulan jejak langkah Natadesa dalam memberdayakan potensi desa di seluruh Indonesia melalui perencanaan strategis, teknologi, dan peningkatan kapasitas sumber daya manusia.
+                {t.portfolio.heroDesc}
               </p>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function PortfolioPage() {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder="Cari lokasi atau nama proyek..."
+                placeholder={t.portfolio.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 bg-muted/50 border-none rounded-md focus:ring-1 focus:ring-primary outline-none text-sm"
@@ -71,7 +71,7 @@ export default function PortfolioPage() {
                   <SelectValue placeholder="Tahun" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Semua tahun</SelectItem>
+                  <SelectItem value="all">{t.portfolio.filterYear}</SelectItem>
                   {Array.from(new Set(allProjects.map(p => p.year))).sort().reverse().map(year => (
                     <SelectItem key={year} value={year}>{year}</SelectItem>
                   ))}
@@ -86,22 +86,22 @@ export default function PortfolioPage() {
           <div className="container max-w-7xl mx-auto px-6">
             <Tabs defaultValue="all" onValueChange={setSelectedCategory} className="w-full">
               <TabsList className="flex flex-wrap justify-start gap-2 bg-transparent h-auto p-0 mb-10">
-                <TabsTrigger value="all" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border px-6 py-2 rounded-full capitalize">Semua</TabsTrigger>
-                <TabsTrigger value="masterplan" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border px-6 py-2 rounded-full capitalize">Rencana induk</TabsTrigger>
-                <TabsTrigger value="training" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border px-6 py-2 rounded-full capitalize">Pelatihan</TabsTrigger>
-                <TabsTrigger value="tech" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border px-6 py-2 rounded-full capitalize">Teknologi</TabsTrigger>
+                <TabsTrigger value="all" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border px-6 py-2 rounded-full capitalize">{t.portfolio.tabAll}</TabsTrigger>
+                <TabsTrigger value="masterplan" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border px-6 py-2 rounded-full capitalize">{t.portfolio.tabMasterplan}</TabsTrigger>
+                <TabsTrigger value="training" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border px-6 py-2 rounded-full capitalize">{t.portfolio.tabTraining}</TabsTrigger>
+                <TabsTrigger value="tech" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border px-6 py-2 rounded-full capitalize">{t.portfolio.tabTech}</TabsTrigger>
               </TabsList>
 
               <TabsContent value={selectedCategory} className="mt-0">
                 {filteredProjects.length > 0 ? (
                   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {filteredProjects.map((project) => (
-                      <PortfolioCard key={project.id} project={project} />
+                      <PortfolioCard key={project.id} project={project} lang={lang} />
                     ))}
                   </div>
                 ) : (
                   <div className="py-20 text-center border rounded-2xl border-dashed">
-                    <p className="text-muted-foreground">Tidak ada proyek yang ditemukan.</p>
+                    <p className="text-muted-foreground">{t.portfolio.noResults}</p>
                   </div>
                 )}
               </TabsContent>
@@ -112,10 +112,10 @@ export default function PortfolioPage() {
         {/* CTA */}
         <section className="py-20 bg-muted/30 border-y">
           <div className="container max-w-7xl mx-auto px-6 text-center">
-            <h2 className="text-2xl font-bold mb-4">Mulai transformasi desa anda</h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">Konsultasikan kebutuhan perencanaan dan pengembangan teknologi desa anda bersama tim ahli kami.</p>
+            <h2 className="text-2xl font-bold mb-4">{t.portfolio.ctaTitle}</h2>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">{t.portfolio.ctaDesc}</p>
             <Button size="lg" className="rounded-full px-8" asChild>
-              <Link href="/kontak">Hubungi kami <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link href="/kontak">{t.portfolio.ctaBtn} <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </div>
         </section>
@@ -126,7 +126,14 @@ export default function PortfolioPage() {
   )
 }
 
-function PortfolioCard({ project }: { project: Project }) {
+const kategoriMap: Record<string, string> = {
+  "Rencana Induk Desa": "Village Master Plan",
+  "Pelatihan": "Training",
+  "Teknologi": "Technology",
+  "Showcase": "Showcase",
+}
+
+function PortfolioCard({ project, lang }: { project: Project; lang: string }) {
   const getIcon = () => {
     switch (project.category) {
       case 'training': return <GraduationCap className="h-4 w-4" />;
@@ -166,7 +173,7 @@ function PortfolioCard({ project }: { project: Project }) {
             </div>
             {project.kategori && (
               <p className="text-xs font-medium text-primary/80 tracking-normal normal-case">
-                {project.kategori}
+                {lang === "en" ? (kategoriMap[project.kategori] ?? project.kategori) : project.kategori}
               </p>
             )}
           </div>

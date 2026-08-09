@@ -261,7 +261,7 @@ export default function ArtikelPage() {
                         variant="secondary"
                         className="w-fit bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border-none px-3 py-1"
                       >
-                        {article.category}
+                        {t.artikel.categoryLabel}
                       </Badge>
                       <CardTitle className="text-xl leading-snug line-clamp-2 group-hover:text-emerald-600 transition-colors duration-300">
                         {article.title}
