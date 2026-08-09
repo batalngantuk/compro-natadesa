@@ -64,163 +64,79 @@ import { useLanguage } from "@/contexts/language-context"
 
 export default function TentangKamiPage() {
   const { t, lang } = useLanguage()
-  const missions = [
-    {
-      icon: Lightbulb,
-      title: "Mengembangkan Potensi Ekonomi",
-      description: "Inovasi produk berbasis sumber daya lokal",
-      detail: "Diversifikasi ekonomi desa",
-    },
-    {
-      icon: Users,
-      title: "Meningkatkan Keterampilan Masyarakat",
-      description: "Pelatihan berkelanjutan",
-      detail: "Pemberdayaan SDM lokal",
-    },
-    {
-      icon: Code,
-      title: "Mendorong Digitalisasi",
-      description: "Transformasi digital desa",
-      detail: "Meningkatkan efisiensi & daya saing",
-    },
-    {
-      icon: Sprout,
-      title: "Melestarikan Lingkungan",
-      description: "Mengadopsi praktik berkelanjutan",
-      detail: "Green economy",
-    },
-    {
-      icon: Palette,
-      title: "Mempromosikan Kearifan Lokal",
-      description: "Mempertahankan identitas budaya unik",
-      detail: "Cultural preservation",
-    },
-    {
-      icon: Handshake,
-      title: "Membangun Kemitraan Strategis",
-      description: "Ekonomi yang adil dan tangguh",
-      detail: "Kolaborasi multi-stakeholder",
-    },
+  const missions = lang === "en" ? [
+    { icon: Lightbulb, title: "Develop Economic Potential", description: "Product innovation based on local resources", detail: "Village economic diversification" },
+    { icon: Users, title: "Improve Community Skills", description: "Sustainable training", detail: "Local human resource empowerment" },
+    { icon: Code, title: "Drive Digitalization", description: "Village digital transformation", detail: "Increasing efficiency & competitiveness" },
+    { icon: Sprout, title: "Preserve the Environment", description: "Adopting sustainable practices", detail: "Green economy" },
+    { icon: Palette, title: "Promote Local Wisdom", description: "Preserving unique cultural identity", detail: "Cultural preservation" },
+    { icon: Handshake, title: "Build Strategic Partnerships", description: "Fair and resilient economy", detail: "Multi-stakeholder collaboration" },
+  ] : [
+    { icon: Lightbulb, title: "Mengembangkan Potensi Ekonomi", description: "Inovasi produk berbasis sumber daya lokal", detail: "Diversifikasi ekonomi desa" },
+    { icon: Users, title: "Meningkatkan Keterampilan Masyarakat", description: "Pelatihan berkelanjutan", detail: "Pemberdayaan SDM lokal" },
+    { icon: Code, title: "Mendorong Digitalisasi", description: "Transformasi digital desa", detail: "Meningkatkan efisiensi & daya saing" },
+    { icon: Sprout, title: "Melestarikan Lingkungan", description: "Mengadopsi praktik berkelanjutan", detail: "Green economy" },
+    { icon: Palette, title: "Mempromosikan Kearifan Lokal", description: "Mempertahankan identitas budaya unik", detail: "Cultural preservation" },
+    { icon: Handshake, title: "Membangun Kemitraan Strategis", description: "Ekonomi yang adil dan tangguh", detail: "Kolaborasi multi-stakeholder" },
   ]
 
-  const mainMissions = [
-    {
-      icon: TrendingUp,
-      title: "Meningkatkan Kesejahteraan Masyarakat",
-      points: ["Pemberdayaan ekonomi lokal", "Peningkatan pendapatan desa"],
-    },
-    {
-      icon: Briefcase,
-      title: "Mengurangi Pengangguran",
-      points: ["Menciptakan lapangan kerja", "Mengembangkan UMKM lokal"],
-    },
-    {
-      icon: Leaf,
-      title: "Melestarikan Alam",
-      points: ["Praktik berkelanjutan", "Konservasi lingkungan"],
-    },
-    {
-      icon: Building,
-      title: "Memperkuat Identitas Lokal",
-      points: ["Pelestarian budaya", "Kearifan lokal"],
-    },
+  const mainMissions = lang === "en" ? [
+    { icon: TrendingUp, title: "Improve Community Welfare", points: ["Local economic empowerment", "Increasing village income"] },
+    { icon: Briefcase, title: "Reduce Unemployment", points: ["Creating job opportunities", "Developing local MSMEs"] },
+    { icon: Leaf, title: "Preserve Nature", points: ["Sustainable practices", "Environmental conservation"] },
+    { icon: Building, title: "Strengthen Local Identity", points: ["Cultural preservation", "Local wisdom"] },
+  ] : [
+    { icon: TrendingUp, title: "Meningkatkan Kesejahteraan Masyarakat", points: ["Pemberdayaan ekonomi lokal", "Peningkatan pendapatan desa"] },
+    { icon: Briefcase, title: "Mengurangi Pengangguran", points: ["Menciptakan lapangan kerja", "Mengembangkan UMKM lokal"] },
+    { icon: Leaf, title: "Melestarikan Alam", points: ["Praktik berkelanjutan", "Konservasi lingkungan"] },
+    { icon: Building, title: "Memperkuat Identitas Lokal", points: ["Pelestarian budaya", "Kearifan lokal"] },
   ]
 
-  const timeline = [
-    {
-      year: "Akhir 2021",
-      title: "Program Awal",
-      description: "Dimulainya program bantuan desa pasca-COVID",
-      detail: "Fase awal pendampingan masyarakat desa",
-    },
-    {
-      year: "2021-2023",
-      title: "Ekspansi Regional",
-      description: "Ekspansi ke berbagai daerah (NTT, Kepulauan Riau, Jawa Tengah)",
-      detail: "20+ proyek rencana induk desa",
-    },
-    {
-      year: "2024",
-      title: "Pendirian Resmi",
-      description: "Pendirian resmi PT Natadesa Bangun Negeri",
-      detail: "Peluncuran platform bisnisdesa.id dan implementasi teknologi digital (RFID, ERP)",
-    },
-    {
-      year: "2025",
-      title: "Ekspansi Berkelanjutan",
-      description: "Ekspansi ke Kalimantan Timur & Jawa Barat",
-      detail: "Pelatihan KDMP skala kabupaten",
-    },
+  const timeline = lang === "en" ? [
+    { year: "Late 2021", title: "Initial Program", description: "Start of post-COVID village assistance program", detail: "Early phase of village community mentoring" },
+    { year: "2021-2023", title: "Regional Expansion", description: "Expansion to various regions (NTT, Riau Islands, Central Java)", detail: "20+ village masterplan projects" },
+    { year: "2024", title: "Official Establishment", description: "Official establishment of PT Natadesa Bangun Negeri", detail: "Launch of bisnisdesa.id platform and digital technology implementation (RFID, ERP)" },
+    { year: "2025", title: "Continued Expansion", description: "Expansion to East Kalimantan & West Java", detail: "District-scale KDMP training" },
+  ] : [
+    { year: "Akhir 2021", title: "Program Awal", description: "Dimulainya program bantuan desa pasca-COVID", detail: "Fase awal pendampingan masyarakat desa" },
+    { year: "2021-2023", title: "Ekspansi Regional", description: "Ekspansi ke berbagai daerah (NTT, Kepulauan Riau, Jawa Tengah)", detail: "20+ proyek rencana induk desa" },
+    { year: "2024", title: "Pendirian Resmi", description: "Pendirian resmi PT Natadesa Bangun Negeri", detail: "Peluncuran platform bisnisdesa.id dan implementasi teknologi digital (RFID, ERP)" },
+    { year: "2025", title: "Ekspansi Berkelanjutan", description: "Ekspansi ke Kalimantan Timur & Jawa Barat", detail: "Pelatihan KDMP skala kabupaten" },
   ]
 
   const teamLeaders = [
-    {
-      name: "Prof. Dr. dr. Asra AlFauzi, Sp.BS, Subsp. N Vas",
-      position: "Penasihat",
-      image: "/dr.jpeg"
-    },
-    {
-      name: "Harri Yudho P .SE",
-      position: "Founder",
-      image: "/HARRI.png"
-    },
-    {
-      name: "Salim Khan",
-      position: "Co Founder",
-      image: "/salim-khan.jpg"
-    },
-    {
-      name: "Alifta Asyari R, A.MD",
-      position: "Business Development",
-      image: "/TATA.png"
-    },
-    {
-      name: "Irfan Saputra S. Ars",
-      position: "Operational",
-      image: "/IRFAN.png"
-    },
-    {
-      name: "Dinda P",
-      position: "Marketing",
-      image: "/dinda-p.jpg"
-    },
+    { name: "Prof. Dr. dr. Asra AlFauzi, Sp.BS, Subsp. N Vas", position: lang === "en" ? "Advisor" : "Penasihat", image: "/dr.jpeg" },
+    { name: "Harri Yudho P .SE", position: "Founder", image: "/HARRI.png" },
+    { name: "Salim Khan", position: "Co Founder", image: "/salim-khan.jpg" },
+    { name: "Alifta Asyari R, A.MD", position: "Business Development", image: "/TATA.png" },
+    { name: "Irfan Saputra S. Ars", position: "Operational", image: "/IRFAN.png" },
+    { name: "Dinda P", position: "Marketing", image: "/dinda-p.jpg" },
   ]
 
   const teamSupport = [
+    { department: "IT Support", icon: Code, members: ["P Alifian Nugroho ( Software Engineer)", "Arnold Tumewu", "Kholilurrohman"] },
     {
-      department: "IT Support",
-      icon: Code,
-      members: ["P Alifian Nugroho ( Software Engineer)", "Arnold Tumewu", "Kholilurrohman"],
+      department: "Media & Content", icon: Camera,
+      members: lang === "en"
+        ? ["M. Rafly Nur Iswandi (Videographer)", "Nizam Rifyal Aufa (Social Media Specialist)", "Farih Zuhair Al Haidar (Photographer)"]
+        : ["M. Rafly Nur Iswandi (Videografer)", "Nizam Rifyal Aufa (Media Sosial Spesialis)", "Farih Zuhair Al Haidar (Fotografer)"],
     },
     {
-      department: "Media & Content",
-      icon: Camera,
-      members: [
-        "M. Rafly Nur Iswandi (Videografer)",
-        "Nizam Rifyal Aufa (Media Sosial Spesialis)",
-        "Farih Zuhair Al Haidar (Fotografer)",
-      ],
+      department: lang === "en" ? "Planning & Design" : "Perencanaan & Desain", icon: PenTool,
+      members: lang === "en"
+        ? ["Fatimah Azahro (Urban Planning)", "Nafila Nur Izza (Area Design)", "Thifaltsabita Zharifah Hanin (Area Design)", "Auuwalatussa'iyah Nurrohmah (Architecture)", "Muhammad Fathir Al Kahfi (Architecture)", "Muhammad Galvani Nauval Zahid (Civil Engineering)"]
+        : ["Fatimah Azahro (Plano)", "Nafila Nur Izza (Perancangan Kawasan)", "Thifaltsabita Zharifah Hanin (Perancangan Kawasan)", "Auuwalatussa'iyah Nurrohmah (Arsitektur)", "Muhammad Fathir Al Kahfi (Arsitektur)", "Muhammad Galvani Nauval Zahid (Teknik Sipil)"],
     },
-    {
-      department: "Perencanaan & Desain",
-      icon: PenTool,
-      members: [
-        "Fatimah Azahro (Plano)",
-        "Nafila Nur Izza (Perancangan Kawasan)",
-        "Thifaltsabita Zharifah Hanin (Perancangan Kawasan)",
-        "Auuwalatussa'iyah Nurrohmah (Arsitektur)",
-        "Muhammad Fathir Al Kahfi (Arsitektur)",
-        "Muhammad Galvani Nauval Zahid (Teknik Sipil)",
-      ],
-    },
-    {
-      department: "E-Commerce",
-      icon: ShoppingCart,
-      members: ["Fatichah Eri (E-commerce Team)"],
-    },
+    { department: "E-Commerce", icon: ShoppingCart, members: ["Fatichah Eri (E-commerce Team)"] },
   ]
 
-  const values = [
+  const values = lang === "en" ? [
+    { icon: Target, title: "Transparency", description: "Accountable operations" },
+    { icon: Globe, title: "Sustainability", description: "Environmentally friendly practices" },
+    { icon: Handshake, title: "Collaboration", description: "Strong partnerships" },
+    { icon: Lightbulb, title: "Innovation", description: "Creative solutions for villages" },
+    { icon: Heart, title: "Empowerment", description: "Focus on communities" },
+  ] : [
     { icon: Target, title: "Transparansi", description: "Operasional yang akuntabel" },
     { icon: Globe, title: "Keberlanjutan", description: "Praktik ramah lingkungan" },
     { icon: Handshake, title: "Kolaborasi", description: "Kemitraan yang kuat" },
@@ -228,7 +144,13 @@ export default function TentangKamiPage() {
     { icon: Heart, title: "Pemberdayaan", description: "Fokus pada masyarakat" },
   ]
 
-  const impactMetrics = [
+  const impactMetrics = lang === "en" ? [
+    { number: 83971, label: "Total villages in Indonesia (TAM)", suffix: "" },
+    { number: 6042, label: "Active tourism villages (SAM)", suffix: "" },
+    { number: 1921, label: "Target villages in Java & Bali (SOM)", suffix: "" },
+    { number: 20, label: "Completed projects", suffix: "+" },
+    { number: 5, label: "Provinces reached", suffix: "" },
+  ] : [
     { number: 83971, label: "Total desa di Indonesia (TAM)", suffix: "" },
     { number: 6042, label: "Desa wisata aktif (SAM)", suffix: "" },
     { number: 1921, label: "Target desa di Jawa & Bali (SOM)", suffix: "" },
@@ -259,6 +181,34 @@ export default function TentangKamiPage() {
     "/tentangkami4.jpg",
 
   ];
+
+  const workSteps = lang === "en" ? [
+    {
+      title: "Capacity Building",
+      items: ["Financial literacy training", "Digital marketing training", "Production standardization"],
+    },
+    {
+      title: "Digital Integration",
+      items: ["ERP system for villages", "Marketplace bisnisdesa.id", "Designed for low connectivity", "Technology literacy optimization"],
+    },
+    {
+      title: "Market Linkage",
+      items: ["Direct distribution channels", "Connection to national retail", "Access to export hubs"],
+    },
+  ] : [
+    {
+      title: "Peningkatan Kapasitas",
+      items: ["Pelatihan literasi keuangan", "Pelatihan pemasaran digital", "Standarisasi produksi"],
+    },
+    {
+      title: "Integrasi Digital",
+      items: ["ERP system untuk desa", "Marketplace bisnisdesa.id", "Dirancang untuk konektivitas rendah", "Optimasi literasi teknologi"],
+    },
+    {
+      title: "Keterkaitan Pasar",
+      items: ["Jalur distribusi langsung", "Koneksi ke ritel nasional", "Akses ke pusat ekspor"],
+    },
+  ]
 
   return (
     <>
@@ -571,93 +521,32 @@ export default function TentangKamiPage() {
             </motion.div>
 
             <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-              {/* Step 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                <Card className="bg-white border-none shadow-xl h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4 ring-8 ring-green-50">
-                      <span className="text-xl font-bold text-green-600">1</span>
-                    </div>
-                    <CardTitle className="text-slate-900 font-bold">Peningkatan Kapasitas</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {[
-                      "Pelatihan literasi keuangan",
-                      "Pelatihan pemasaran digital",
-                      "Standarisasi produksi"
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-slate-600 leading-snug">{item}</span>
+              {workSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
+                >
+                  <Card className="bg-white border-none shadow-xl h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <CardHeader>
+                      <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4 ring-8 ring-green-50">
+                        <span className="text-xl font-bold text-green-600">{index + 1}</span>
                       </div>
-                    ))}
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* Step 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <Card className="bg-white border-none shadow-xl h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4 ring-8 ring-green-50">
-                      <span className="text-xl font-bold text-green-600">2</span>
-                    </div>
-                    <CardTitle className="text-slate-900 font-bold">Integrasi Digital</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {[
-                      "ERP system untuk desa",
-                      "Marketplace bisnisdesa.id",
-                      "Dirancang untuk konektivitas rendah",
-                      "Optimasi literasi teknologi"
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-slate-600 leading-snug">{item}</span>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              {/* Step 3 */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <Card className="bg-white border-none shadow-xl h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4 ring-8 ring-green-50">
-                      <span className="text-xl font-bold text-green-600">3</span>
-                    </div>
-                    <CardTitle className="text-slate-900 font-bold">Keterkaitan Pasar</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {[
-                      "Jalur distribusi langsung",
-                      "Koneksi ke ritel nasional",
-                      "Akses ke pusat ekspor"
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-slate-600 leading-snug">{item}</span>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
-              </motion.div>
+                      <CardTitle className="text-slate-900 font-bold">{step.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      {step.items.map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-slate-600 leading-snug">{item}</span>
+                        </div>
+                      ))}
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>

@@ -45,14 +45,260 @@ export default function LayananPage() {
   const { t, lang } = useLanguage()
   const [expandedService, setExpandedService] = useState<number | null>(null)
 
-  const services = [
+  const services = lang === "en" ? [
+    {
+      id: "perencanaan-bisnis",
+      icon: MapIcon,
+      title: "Business Planning",
+      tagline: "Strategic village development",
+      description: "Participatory mapping, planning, implementation, and sustainability roadmap for village growth",
+      details: [
+        "Participatory village potential mapping",
+        "Long-term strategic planning",
+        "Area development master plan",
+        "Phased implementation roadmap",
+        "Spatial and land use planning",
+        "Sustainability roadmap",
+        "Master plan document preparation",
+      ],
+      deliverables: [
+        "Village Master Plan Document",
+        "Potential & Zoning Map",
+        "5-Year Implementation Plan",
+        "Business Model Canvas",
+      ],
+      idealFor: [
+        "New tourism villages",
+        "BUMDes looking to expand",
+        "Pokdarwis needing strategic direction",
+        "Village governments for development planning",
+      ],
+      cta: "Planning Consultation",
+      link: "#",
+    },
+    {
+      id: "peningkatan-kapasitas",
+      icon: Users,
+      title: "Capacity Building",
+      tagline: "Skill development for competitiveness",
+      description: "Technical & non-technical skills programs, managerial training, and digital literacy tailored for rural businesses",
+      categories: [
+        {
+          name: "Technical Training",
+          items: [
+            "Financial management & bookkeeping",
+            "Production standardization",
+            "Product quality control",
+            "Packaging & branding",
+            "Inventory management",
+          ],
+        },
+        {
+          name: "Non-Technical Training",
+          items: [
+            "Leadership & organizational management",
+            "Customer service excellence",
+            "Team building & collaboration",
+            "Effective communication",
+          ],
+        },
+        {
+          name: "Digital Literacy",
+          items: [
+            "Digital marketing & social media",
+            "E-commerce & marketplace",
+            "Content creation (photo, video)",
+            "Online payment & fintech",
+            "Digital bookkeeping",
+          ],
+        },
+        {
+          name: "Managerial Training",
+          items: ["Business planning", "Strategic management", "Risk management", "Performance monitoring"],
+        },
+      ],
+      formats: [
+        "Intensive workshop",
+        "Phased training",
+        "1-on-1 mentoring",
+        "Online learning modules",
+        "Train the trainer",
+      ],
+      targetAudience: [
+        "KDMP (Productive Community Groups)",
+        "BUMDes management",
+        "Tourism village managers",
+        "Rural MSMEs",
+        "Relevant district agencies",
+      ],
+      cta: "Natadesa Training Portal",
+      link: "https://pelatihanbynatadesa.vercel.app/",
+    },
+    {
+      id: "smart-desa",
+      icon: Laptop,
+      title: "Smart Village",
+      tagline: "Tools for transparent operations",
+      description: "Websites, social media, POS/ERP, and marketplace through bisnisdesa.id for efficient operations in low-connectivity conditions",
+      platforms: [
+        {
+          name: "Website Development",
+          icon: "🌐",
+          features: [
+            "Professional BUMDes website",
+            "Tourism village website",
+            "Integrated booking system",
+            "Multi-language support",
+            "Mobile responsive",
+            "SEO optimized",
+          ],
+        },
+        {
+          name: "Social Media Management",
+          icon: "📱",
+          features: [
+            "Business account setup (Instagram, Facebook, TikTok)",
+            "Content strategy & calendar",
+            "Graphic design templates",
+            "Community management training",
+            "Analytics & reporting",
+          ],
+        },
+        {
+          name: "POS/ERP System",
+          icon: "💳",
+          features: [
+            "Point of Sale for tourism sites",
+            "Inventory management",
+            "Financial reporting",
+            "Multi-outlet support",
+            "Offline mode capability",
+            "Cloud backup",
+          ],
+        },
+        {
+          name: "Marketplace Integration",
+          icon: "🛒",
+          features: [
+            "Integration with bisnisdesa.id",
+            "Product listing & management",
+            "Order processing system",
+            "Payment gateway integration",
+            "Logistics coordination",
+          ],
+        },
+      ],
+      specialSystems: [
+        {
+          name: "RFID System",
+          features: [
+            "Ticketing automation",
+            "Visitor tracking",
+            "Cashless payment",
+            "Real-time monitoring",
+            "(Example: Umbul Ponggok)",
+          ],
+        },
+        {
+          name: "Dashboard Analytics",
+          features: [
+            "Real-time sales monitoring",
+            "Visitor statistics",
+            "Revenue analytics",
+            "Performance KPIs",
+            "Custom reports",
+          ],
+        },
+      ],
+      advantages: [
+        "Optimized for low connectivity",
+        "User-friendly for basic technology literacy",
+        "Transparent & accountable operations",
+        "Cloud-based with offline capability",
+        "Affordable pricing for villages",
+      ],
+      cta: "Visit Smart Village",
+      link: "https://smartdesa-neon.vercel.app/",
+    },
+    {
+      id: "platform-trustfund",
+      icon: Briefcase,
+      title: "Trustfund Platform",
+      tagline: "From concept to operations",
+      description: "Tourism, agrotourism, health, cultural, and environmental businesses with comprehensive guidance",
+      businessPlanning: [
+        "Market research & feasibility study",
+        "Business model development",
+        "Financial projection (3-5 years)",
+        "Risk assessment",
+        "Investment requirements",
+      ],
+      operationalSetup: [
+        "SOP (Standard Operating Procedures)",
+        "Organizational structure",
+        "Job descriptions",
+        "Workflow optimization",
+        "Quality standards",
+      ],
+      businessTypes: [
+        {
+          icon: "🏞️",
+          name: "Tourism & Village Tourism",
+          examples: [
+            "Nature tourism",
+            "Cultural tourism",
+            "Educational tourism",
+            "Adventure tourism",
+            "Glamping & homestay",
+          ],
+        },
+        {
+          icon: "🌾",
+          name: "Agrotourism",
+          examples: [
+            "Farm tourism",
+            "Organic farming experience",
+            "Harvest experience",
+            "Agro-processing",
+            "Farm-to-table concepts",
+          ],
+        },
+        {
+          icon: "🏥",
+          name: "Health & Wellness",
+          examples: ["Eco-therapy retreat", "Herbal tourism", "Traditional healing center", "Wellness programs"],
+        },
+        {
+          icon: "🎭",
+          name: "Culture & Heritage",
+          examples: [
+            "Cultural performance venues",
+            "Traditional craft centers",
+            "Heritage conservation",
+            "Cultural festivals",
+          ],
+        },
+        {
+          icon: "🌿",
+          name: "Environment & Conservation",
+          examples: ["Eco-tourism", "Conservation projects", "Environmental education", "Green economy initiatives"],
+        },
+      ],
+      packages: [
+        { name: "Starter", desc: "Business plan + Setup consultation" },
+        { name: "Growth", desc: "Full setup + 6 months of mentoring" },
+        { name: "Premium", desc: "Full management + ongoing support" },
+      ],
+      cta: "Visit Bisnisdesa.id",
+      link: "https://v0-nata-desa.vercel.app/",
+    },
+  ] : [
     {
       id: "perencanaan-bisnis",
       icon: MapIcon,
       title: "Perencanaan Bisnis",
       tagline: "Pembangunan desa yang strategis",
-      description:
-        "Pemetaan partisipatif, perencanaan, implementasi, dan peta jalan keberlanjutan untuk pertumbuhan desa",
+      description: "Pemetaan partisipatif, perencanaan, implementasi, dan peta jalan keberlanjutan untuk pertumbuhan desa",
       details: [
         "Pemetaan potensi desa secara partisipatif",
         "Perencanaan strategis jangka panjang",
@@ -82,8 +328,7 @@ export default function LayananPage() {
       icon: Users,
       title: "Peningkatan Kapasitas",
       tagline: "Pengembangan keterampilan untuk daya saing",
-      description:
-        "Program-program keterampilan teknis & non-teknis, pelatihan manajerial, dan literasi digital yang disesuaikan untuk usaha di daerah pedesaan",
+      description: "Program-program keterampilan teknis & non-teknis, pelatihan manajerial, dan literasi digital yang disesuaikan untuk usaha di daerah pedesaan",
       categories: [
         {
           name: "Pelatihan Teknis",
@@ -141,8 +386,7 @@ export default function LayananPage() {
       icon: Laptop,
       title: "Smart Desa",
       tagline: "Alat untuk operasional yang transparan",
-      description:
-        "Situs web, media sosial, POS/ERP, dan marketplace melalui bisnisdesa.id untuk memungkinkan operasional yang efisien dalam kondisi konektivitas rendah",
+      description: "Situs web, media sosial, POS/ERP, dan marketplace melalui bisnisdesa.id untuk memungkinkan operasional yang efisien dalam kondisi konektivitas rendah",
       platforms: [
         {
           name: "Website Development",
@@ -297,7 +541,67 @@ export default function LayananPage() {
     },
   ]
 
-  const workProcess = [
+  const workProcess = lang === "en" ? [
+    {
+      number: 1,
+      icon: Search,
+      title: "Discovery & Assessment",
+      image: "/sawah.jpg",
+      items: [
+        "Field visit",
+        "Potential mapping",
+        "Existing condition analysis",
+        "Needs identification",
+        "Stakeholder meeting",
+      ],
+    },
+    {
+      number: 2,
+      icon: FileText,
+      title: "Planning & Strategy",
+      image: "/sawah.jpg",
+      items: [
+        "Strategic plan formulation",
+        "Design & blueprint",
+        "Financial modeling",
+        "Risk assessment",
+        "Approval & agreement",
+      ],
+    },
+    {
+      number: 3,
+      icon: Rocket,
+      title: "Implementation",
+      image: "/sawah.jpg",
+      items: [
+        "Execution on schedule",
+        "Training & capacity building",
+        "Technology implementation",
+        "Quality control",
+        "Progress monitoring",
+      ],
+    },
+    {
+      number: 4,
+      icon: BarChart3,
+      image: "/sawah.jpg",
+      title: "Monitoring & Evaluation",
+      items: ["Performance tracking", "Impact assessment", "Problem-solving", "Optimization", "Reporting"],
+    },
+    {
+      number: 5,
+      icon: Sprout,
+      image: "/sawah.jpg",
+      title: "Sustainability",
+      items: [
+        "Continuous improvement",
+        "Knowledge transfer",
+        "Community empowerment",
+        "Long-term partnership",
+        "Scale-up opportunities",
+      ],
+    },
+  ] : [
     {
       number: 1,
       icon: Search,
@@ -359,7 +663,38 @@ export default function LayananPage() {
     },
   ]
 
-  const advantages = [
+  const advantages = lang === "en" ? [
+    {
+      icon: Target,
+      title: "Tailored Village Solutions",
+      description: "Design aligned with local character, targeted implementation, cultural sensitivity",
+    },
+    {
+      icon: Copy,
+      title: "Replication Model",
+      description: "Proven MVP model, easily replicated across regions, scalable & sustainable",
+    },
+    {
+      icon: Globe,
+      title: "Digital Integration",
+      description: "bisnisdesa.id platform, efficient & transparent operations, accountable & measurable",
+    },
+    {
+      icon: Handshake,
+      title: "Strategic Partnerships",
+      description: "Cross-sector collaboration, wide network (government, universities, corporate), access to funding & market",
+    },
+    {
+      icon: Heart,
+      title: "Community Engagement",
+      description: "Participative from the start, community ownership, strong sense of belonging",
+    },
+    {
+      icon: Award,
+      title: "Proven Track Record",
+      description: "20+ completed projects, experience in 5 provinces, real success stories",
+    },
+  ] : [
     {
       icon: Target,
       title: "Solusi Khusus Desa",
@@ -378,8 +713,7 @@ export default function LayananPage() {
     {
       icon: Handshake,
       title: "Kemitraan Strategis",
-      description:
-        "Kolaborasi lintas sektor, jaringan luas (pemerintah, universitas, korporat), akses ke funding & market",
+      description: "Kolaborasi lintas sektor, jaringan luas (pemerintah, universitas, korporat), akses ke funding & market",
     },
     {
       icon: Heart,
@@ -393,7 +727,40 @@ export default function LayananPage() {
     },
   ]
 
-  const portfolioProjects = [
+  const portfolioProjects = lang === "en" ? [
+    {
+      title: "Desa Ponggok - Fish & Farm",
+      service: "Long-Term Planning + Technology",
+      location: "Klaten, Central Java",
+      year: "2024",
+      brief: "Master planning + RFID system",
+      image: "/ponggok-fish-farm-sustainable-village.jpg",
+    },
+    {
+      title: "KDMP Brebes Training",
+      service: "Capacity Building",
+      location: "Brebes, Central Java",
+      year: "2025",
+      brief: "Training for KDMP groups",
+      image: "/training-session-in-village-community.jpg",
+    },
+    {
+      title: "BUMDes Tirta Mandiri Website",
+      service: "Digitalization",
+      location: "Klaten, Central Java",
+      year: "2024",
+      brief: "Website development",
+      image: "/website-dashboard-bumdes.jpg",
+    },
+    {
+      title: "Delanggu Ecopark Management",
+      service: "Business Management",
+      location: "Klaten, Central Java",
+      year: "2024",
+      brief: "Operational management",
+      image: "/delanggu-eco-park-sustainable-tourism.jpg",
+    },
+  ] : [
     {
       title: "Desa Ponggok - Fish & Farm",
       service: "Rencana Jangka Panjang + Teknologi",
@@ -428,7 +795,32 @@ export default function LayananPage() {
     },
   ]
 
-  const faqs = [
+  const faqs = lang === "en" ? [
+    {
+      q: "How long does village planning take?",
+      a: "Depending on complexity, generally 2-4 months from assessment to final document.",
+    },
+    {
+      q: "Can services be tailored to the village's budget?",
+      a: "Yes, we provide flexible packages to suit your needs and budget.",
+    },
+    {
+      q: "Is there post-implementation support?",
+      a: "Yes, we provide ongoing monitoring and evaluation.",
+    },
+    {
+      q: "How do I register for training?",
+      a: "Contact us via the contact form or WhatsApp for training schedule information.",
+    },
+    {
+      q: "Is the bisnisdesa.id platform free?",
+      a: "There is a free plan with basic features, and paid plans for full features.",
+    },
+    {
+      q: "Which regions do you serve?",
+      a: "We serve all of Indonesia, with an initial focus on Java & Bali.",
+    },
+  ] : [
     {
       q: "Berapa lama waktu yang dibutuhkan untuk perencanaan desa?",
       a: "Tergantung kompleksitas, umumnya 2-4 bulan dari assessment hingga dokumen final.",
@@ -1010,23 +1402,39 @@ export default function LayananPage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
+              {(lang === "en" ? [
+                {
+                  title: "E-Book: Role of Social Media for BUMDes",
+                  desc: "Complete guide to creating a business plan for tourism villages",
+                  link: "https://drive.google.com/file/d/1BsB3ToaJH4DN_oykLkhdmkJixcQoezCD/view?usp=sharing"
+                },
+                {
+                  title: "E-Book: BUMDes Management",
+                  desc: "Complete checklist for village digital transformation",
+                  link: "https://drive.google.com/file/d/1dXQ4jupUYWAOc0oBo81IghmUETAX_NEC/view?usp=sharing"
+                },
+                {
+                  title: "Identifying BUMDes Flagship Products",
+                  desc: "Social media marketing strategy for BUMDes",
+                  link: "https://drive.google.com/file/d/1hbXzvvQMdgkFRUOnvs4a0Zlekn2yHSs-/view?usp=sharing"
+                }
+              ] : [
                 {
                   title: "E-Book PEran Media Sosial Untuk Bumdes",
                   desc: "Panduan lengkap membuat business plan untuk desa wisata",
-                  link: "https://drive.google.com/file/d/1BsB3ToaJH4DN_oykLkhdmkJixcQoezCD/view?usp=sharing" // Ganti dengan link PDF 1
+                  link: "https://drive.google.com/file/d/1BsB3ToaJH4DN_oykLkhdmkJixcQoezCD/view?usp=sharing"
                 },
                 {
                   title: "E-Book Manajemen Bumdes",
                   desc: "Checklist lengkap untuk transformasi digital desa",
-                  link: "https://drive.google.com/file/d/1dXQ4jupUYWAOc0oBo81IghmUETAX_NEC/view?usp=sharing" // Ganti dengan link PDF 2
+                  link: "https://drive.google.com/file/d/1dXQ4jupUYWAOc0oBo81IghmUETAX_NEC/view?usp=sharing"
                 },
                 {
                   title: "Identifikasi Produk Unggulan Bumdes",
                   desc: "Strategi social media marketing untuk BUMDes",
-                  link: "https://drive.google.com/file/d/1hbXzvvQMdgkFRUOnvs4a0Zlekn2yHSs-/view?usp=sharing" // Ganti dengan link PDF 3
+                  link: "https://drive.google.com/file/d/1hbXzvvQMdgkFRUOnvs4a0Zlekn2yHSs-/view?usp=sharing"
                 }
-              ].map((item, index) => (
+              ]).map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -1108,10 +1516,21 @@ export default function LayananPage() {
                       <div>
                         <select className="w-full h-10 px-3 rounded-md border border-input bg-background">
                           <option value="">{t.services.formService}</option>
-                          <option>Rencana Jangka Panjang Desa</option>
-                          <option>Peningkatan Kapasitas HR</option>
-                          <option>Digitalisasi dan Teknologi</option>
-                          <option>Bantuan Manajemen Bisnis</option>
+                          {lang === "en" ? (
+                            <>
+                              <option>Village Long-Term Planning</option>
+                              <option>HR Capacity Building</option>
+                              <option>Digitalization & Technology</option>
+                              <option>Business Management Support</option>
+                            </>
+                          ) : (
+                            <>
+                              <option>Rencana Jangka Panjang Desa</option>
+                              <option>Peningkatan Kapasitas HR</option>
+                              <option>Digitalisasi dan Teknologi</option>
+                              <option>Bantuan Manajemen Bisnis</option>
+                            </>
+                          )}
                         </select>
                       </div>
                       <div>
