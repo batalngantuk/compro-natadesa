@@ -173,7 +173,7 @@ export default function TentangKamiPage() {
     },
     {
       name: "Irfan Saputra S. Ars",
-      position: "COO",
+      position: "Operational",
       image: "/IRFAN.png"
     },
     {
