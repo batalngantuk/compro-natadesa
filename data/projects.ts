@@ -217,7 +217,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Rencana strategis yang disusun secara holistik untuk memproyeksikan Desa Barudua Garut sebagai simpul pertumbuhan ekonomi regional yang sinergis antara sektor pertanian dan wisata alam.",
-        gallery: ["/porto/baruduagarut/barudua.JPEG", "/porto/baruduagarut/barudua.JPEG", "/porto/baruduagarut/barudua.JPEG"]
+        gallery: ["/porto/baruduagarut/barudua.jpeg", "/porto/baruduagarut/barudua.jpeg", "/porto/baruduagarut/barudua.jpeg"]
     },
     {
         id: "kopidilselatan",
@@ -230,7 +230,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Penyusunan masterplan kawasan yang selaras dengan kekayaan nusantara dan potensi sumber daya alam dalam membangkitkan perekonomian masyarakat Desa Kopidil Selatan.",
-        gallery: ["/porto/kopidilselatan/kopidilselatan.JPEG", "/porto/kopidilselatan/kopidilselatan.JPEG", "/porto/kopidilselatan/kopidilselatan.JPEG"]
+        gallery: ["/porto/kopidilselatan/kopidilselatan.jpeg", "/porto/kopidilselatan/kopidilselatan.jpeg", "/porto/kopidilselatan/kopidilselatan.jpeg"]
     },
     {
         id: "pintumas",
@@ -243,7 +243,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Langkah-langkah strategis dan program pendampingan komprehensif untuk memandu optimalisasi kekuatan sumber daya kehidupan maritim dan tata kelola wisata pesisir percontohan.",
-        gallery: ["/porto/pintumas/pintumas.JPEG", "/porto/pintumas/pintumas.JPEG", "/porto/pintumas/pintumas.JPEG"]
+        gallery: ["/porto/pintumas/pintumas.jpeg", "/porto/pintumas/pintumas.jpeg", "/porto/pintumas/pintumas.jpeg"]
     },
     {
         id: "telukbakau",
@@ -256,7 +256,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Pemberdayaan aparatur dan warga yang terfokus pada revitalisasi potensi perairan desa guna menggarap kawasan ekowisata pantai yang indah serta berkelanjutan di Teluk Bakau.",
-        gallery: ["/porto/telukbakau/telukbakau.JPEG", "/porto/telukbakau/telukbakau.JPEG", "/porto/telukbakau/telukbakau.JPEG"]
+        gallery: ["/porto/telukbakau/telukbakau.jpeg", "/porto/telukbakau/telukbakau.jpeg", "/porto/telukbakau/telukbakau.jpeg"]
     },
     {
         id: "gunung-kijang",
@@ -269,7 +269,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Penyusunan arahan pendampingan desa inklusif dalam mengakomodasi pembangunan prasarana, menciptakan keunggulan pariwisata lokal, dan mendorong pemerataan ekonomi di Gunung Kijang.",
-        gallery: ["/porto/gunungkijang/gunungkijang.JPEG", "/porto/gunungkijang/gunungkijang.JPEG", "/porto/gunungkijang/gunungkijang.JPEG"]
+        gallery: ["/porto/gunungkijang/gunungkijang.jpeg", "/porto/gunungkijang/gunungkijang.jpeg", "/porto/gunungkijang/gunungkijang.jpeg"]
     },
     {
         id: "sidowayah-klaten",
@@ -282,7 +282,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Pendampingan terarah untuk peningkatan keterampilan dalam perancangan desa wisata edukasi maupun atraksi rekreasi air khas Sidowayah, untuk ekonomi produktif yang matang.",
-        gallery: ["/porto/sidowayah/sidowayah.JPEG", "/porto/sidowayah/sidowayah.JPEG", "/porto/sidowayah/sidowayah.JPEG"]
+        gallery: ["/porto/sidowayah/sidowayah.jpeg", "/porto/sidowayah/sidowayah.jpeg", "/porto/sidowayah/sidowayah.jpeg"]
     },
     {
         id: "canden-boyolali",
@@ -295,7 +295,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Program advokasi dan manajemen lingkungan secara komprehensif yang dirancang khusus untuk membangun fondasi kawasan desa wisata sehat dan berketahanan ekologis tangguh di Canden.",
-        gallery: ["/porto/candenboyolali/candenboyolali.JPEG", "/porto/candenboyolali/candenboyolali.JPEG", "/porto/candenboyolali/candenboyolali.JPEG"]
+        gallery: ["/porto/candenboyolali/candenboyolali.jpeg", "/porto/candenboyolali/candenboyolali.jpeg", "/porto/candenboyolali/candenboyolali.jpeg"]
     },
     {
         id: "tibayan-klaten",
@@ -308,7 +308,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Pemberdayaan sosial-ekonomi strategis bagi masyarakat setempat pada ekosistem usaha agrowisata untuk menaikkan kesejahteraan, lewat BUMDes Tibayan dan optimalisasi potensi lokal.",
-        gallery: ["/porto/tibayanklaten/tibayanklaten.JPEG", "/porto/tibayanklaten/tibayanklaten.JPEG", "/porto/tibayanklaten/tibayanklaten.JPEG"]
+        gallery: ["/porto/tibayanklaten/tibayanklaten.jpeg", "/porto/tibayanklaten/tibayanklaten.jpeg", "/porto/tibayanklaten/tibayanklaten.jpeg"]
     },
     {
         id: "motongbang",
@@ -321,7 +321,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Harmonisasi dan pendampingan pengelolaan desa produktif, difokuskan pada penguatan produk-produk lokal, konservasi lingkungan cerdas, serta penambahan aset dan sarana prasarana wisata Motongbang.",
-        gallery: ["/porto/motongbang/motongbang.JPEG", "/porto/motongbang/motongbang.JPEG", "/porto/motongbang/motongbang.JPEG"]
+        gallery: ["/porto/motongbang/motongbang.jpeg", "/porto/motongbang/motongbang.jpeg", "/porto/motongbang/motongbang.jpeg"]
     },
     {
         id: "padidipa",
@@ -334,7 +334,7 @@ export const allProjects: Project[] = [
         category: "masterplan",
         badge: "NEW",
         content: "Aktivitas fasilitasi dan pendampingan pelestarian wisata alam menakjubkan di Padidipa demi mengoptimalkan nilai jual wisata, meningkatkan keamanan kawasan, sekaligus membuka potensi kewirausahaan warga setempat.",
-        gallery: ["/porto/padidipa/padidipa.JPEG", "/porto/padidipa/padidipa.JPEG", "/porto/padidipa/padidipa.JPEG"]
+        gallery: ["/porto/padidipa/padidipa.jpeg", "/porto/padidipa/padidipa.jpeg", "/porto/padidipa/padidipa.jpeg"]
     },
 
 
