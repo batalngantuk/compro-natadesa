@@ -176,6 +176,11 @@ export default function TentangKamiPage() {
       position: "COO",
       image: "/IRFAN.png"
     },
+    {
+      name: "Dinda P",
+      position: "Marketing",
+      image: "/dinda-p.jpg"
+    },
   ]
 
   const teamSupport = [
