@@ -10,17 +10,22 @@ import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function PlatformPage() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
+
   const desaPortalFeatures = [
     {
       icon: LayoutDashboard,
       title: "Dashboard",
-      features: ["Overview operasional desa", "Monitoring kinerja real-time", "Manajemen data terpadu"],
+      features: lang === "en"
+        ? ["Village operational overview", "Real-time performance monitoring", "Integrated data management"]
+        : ["Overview operasional desa", "Monitoring kinerja real-time", "Manajemen data terpadu"],
     },
     {
       icon: GraduationCap,
       title: "Training",
-      features: ["Modul pelatihan digital", "Learning management system", "Progress tracking"],
+      features: lang === "en"
+        ? ["Digital training modules", "Learning management system", "Progress tracking"]
+        : ["Modul pelatihan digital", "Learning management system", "Progress tracking"],
     },
   ]
 
@@ -28,35 +33,47 @@ export default function PlatformPage() {
     {
       icon: Search,
       title: "Search",
-      features: ["Pencarian desa berdasarkan kriteria", "Filter berdasarkan potensi", "Data analitik lengkap"],
+      features: lang === "en"
+        ? ["Search villages by criteria", "Filter by potential", "Complete data analytics"]
+        : ["Pencarian desa berdasarkan kriteria", "Filter berdasarkan potensi", "Data analitik lengkap"],
     },
     {
       icon: FileText,
       title: "Detail",
-      features: ["Informasi lengkap desa", "Profil usaha dan produk", "Peluang investasi"],
+      features: lang === "en"
+        ? ["Complete village information", "Business and product profiles", "Investment opportunities"]
+        : ["Informasi lengkap desa", "Profil usaha dan produk", "Peluang investasi"],
     },
   ]
 
   const keyFeatures = [
     {
       icon: Zap,
-      title: "Optimized untuk Konektivitas Rendah",
-      description: "ERP system yang tetap berfungsi efektif bahkan dengan koneksi internet terbatas",
+      title: lang === "en" ? "Optimized for Low Connectivity" : "Optimized untuk Konektivitas Rendah",
+      description: lang === "en"
+        ? "ERP system that works effectively even with limited internet connection"
+        : "ERP system yang tetap berfungsi efektif bahkan dengan koneksi internet terbatas",
     },
     {
       icon: ShoppingCart,
-      title: "Marketplace Terintegrasi",
-      description: "Menghubungkan UMKM/BUMDes langsung ke pasar tanpa perantara berlebih",
+      title: lang === "en" ? "Integrated Marketplace" : "Marketplace Terintegrasi",
+      description: lang === "en"
+        ? "Connects MSMEs/BUMDes directly to market without excessive intermediaries"
+        : "Menghubungkan UMKM/BUMDes langsung ke pasar tanpa perantara berlebih",
     },
     {
       icon: Globe,
       title: "User-Friendly Interface",
-      description: "Dirancang untuk literasi teknologi dasar dengan antarmuka yang mudah dipahami",
+      description: lang === "en"
+        ? "Designed for basic technology literacy with an easy-to-understand interface"
+        : "Dirancang untuk literasi teknologi dasar dengan antarmuka yang mudah dipahami",
     },
     {
       icon: Database,
-      title: "Operasional Transparan",
-      description: "Sistem pelaporan otomatis yang akuntabel dan dapat diaudit",
+      title: lang === "en" ? "Transparent Operations" : "Operasional Transparan",
+      description: lang === "en"
+        ? "Automated reporting system that is accountable and auditable"
+        : "Sistem pelaporan otomatis yang akuntabel dan dapat diaudit",
     },
   ]
 
@@ -68,13 +85,9 @@ export default function PlatformPage() {
         <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-accent/10">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl font-bold mb-6 text-balance">Platform Bisnisdesa.id</h1>
-              <p className="text-2xl text-primary mb-4 font-semibold">
-                Ekosistem digital untuk "Nata Desa" (Organize the Village)
-              </p>
-              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-                Platform terpadu untuk mengorganisir, mendigitalisasi, dan mengkomersialkan potensi desa
-              </p>
+              <h1 className="text-4xl font-bold mb-6 text-balance">{t.platform.heroTitle}</h1>
+              <p className="text-2xl text-primary mb-4 font-semibold">{t.platform.heroSub}</p>
+              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">{t.platform.heroSubDesc}</p>
             </div>
           </div>
         </section>
@@ -83,10 +96,8 @@ export default function PlatformPage() {
         <section className="py-16">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Portal Desa</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Tools lengkap untuk manajemen dan pengembangan desa
-              </p>
+              <h2 className="text-3xl font-bold mb-4">{t.platform.portalDesaTitle}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{t.platform.portalDesaDesc}</p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
               {desaPortalFeatures.map((feature, index) => (
@@ -115,10 +126,8 @@ export default function PlatformPage() {
         <section className="py-16 bg-muted/30">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Portal Investor</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Platform pencarian dan analisis peluang investasi desa
-              </p>
+              <h2 className="text-3xl font-bold mb-4">{t.platform.portalInvestorTitle}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{t.platform.portalInvestorDesc}</p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
               {investorPortalFeatures.map((feature, index) => (
@@ -149,22 +158,22 @@ export default function PlatformPage() {
             <Card className="max-w-3xl mx-auto">
               <CardHeader className="text-center">
                 <Database className="h-16 w-16 text-primary mb-4 mx-auto" />
-                <CardTitle>Portal Data Client</CardTitle>
-                <CardDescription>Manajemen relasi dan data terpusat</CardDescription>
+                <CardTitle>{t.platform.dataClientTitle}</CardTitle>
+                <CardDescription>{t.platform.dataClientDesc}</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="text-primary text-xl">•</span>
-                    <span className="text-muted-foreground">Database klien terintegrasi</span>
+                    <span className="text-muted-foreground">{t.platform.dataClient1}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary text-xl">•</span>
-                    <span className="text-muted-foreground">Manajemen relasi pelanggan (CRM)</span>
+                    <span className="text-muted-foreground">{t.platform.dataClient2}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary text-xl">•</span>
-                    <span className="text-muted-foreground">Reporting & analytics komprehensif</span>
+                    <span className="text-muted-foreground">{t.platform.dataClient3}</span>
                   </li>
                 </ul>
               </CardContent>
@@ -176,8 +185,8 @@ export default function PlatformPage() {
         <section className="py-16 bg-muted/30">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Fitur Utama</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">Teknologi yang disesuaikan dengan realitas desa</p>
+              <h2 className="text-3xl font-bold mb-4">{t.platform.keyFeaturesTitle}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{t.platform.keyFeaturesDesc}</p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {keyFeatures.map((feature, index) => (
@@ -196,22 +205,15 @@ export default function PlatformPage() {
         {/* CTA */}
         <section className="py-20 bg-primary text-primary-foreground">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-balance">Tertarik Menggunakan Platform Kami?</h2>
-            <p className="text-lg mb-8 opacity-90 text-pretty max-w-2xl mx-auto">
-              Jadwalkan demo untuk melihat bagaimana bisnisdesa.id dapat mentransformasi operasional desa Anda
-            </p>
+            <h2 className="text-3xl font-bold mb-4 text-balance">{t.platform.ctaTitle}</h2>
+            <p className="text-lg mb-8 opacity-90 text-pretty max-w-2xl mx-auto">{t.platform.ctaDesc}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/kontak">Request Demo</Link>
+                <Link href="/kontak">{t.platform.ctaDemo}</Link>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
-                asChild
-              >
+              <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" asChild>
                 <Link href="https://v0-nata-desa.vercel.app/" target="_blank" rel="noopener noreferrer">
-                  Kunjungi bisnisdesa.id
+                  {t.platform.ctaVisit}
                 </Link>
               </Button>
             </div>

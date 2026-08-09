@@ -39,8 +39,10 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function LayananPage() {
+  const { t, lang } = useLanguage()
   const [expandedService, setExpandedService] = useState<number | null>(null)
 
   const services = [
@@ -483,7 +485,7 @@ export default function LayananPage() {
                 transition={{ duration: 0.6 }}
                 className="text-4xl font-bold mb-6 text-white"
               >
-                Produk dan Layanan
+                {t.services.heroTitle}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
@@ -492,8 +494,7 @@ export default function LayananPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-lg text-white mb-4 text-pretty leading-relaxed"
               >
-                Natadesa menyediakan layanan terpadu untuk mengorganisir desa-desa dan membuka jalan bagi mata
-                pencaharian yang berkelanjutan
+                {t.services.heroDesc}
               </motion.p>
             </div>
           </div>
@@ -529,7 +530,7 @@ export default function LayananPage() {
                         className="w-full justify-between rounded-none border-y border-transparent hover:bg-[#fa9223] border-primary/10 normal-case"
                         onClick={() => setExpandedService(expandedService === index ? null : index)}
                       >
-                        <span>Lihat detail</span>
+                        <span>{t.services.viewDetails}</span>
                         {expandedService === index ? (
                           <ChevronUp className="h-4 w-4" />
                         ) : (
@@ -541,7 +542,7 @@ export default function LayananPage() {
                         <div className="space-y-4 pt-4 border-t border-primary/10 animate-in slide-in-from-top-2">
                           {service.details && (
                             <div>
-                              <h4 className="font-semibold mb-2 normal-case">Detail layanan:</h4>
+                              <h4 className="font-semibold mb-2 normal-case">{t.services.serviceDetailsLabel}</h4>
                               <ul className="space-y-1">
                                 {service.details.map((detail, i) => (
                                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -573,7 +574,7 @@ export default function LayananPage() {
 
                           {service.platforms && (
                             <div className="space-y-3">
-                              <h4 className="font-semibold normal-case">Platform digital:</h4>
+                              <h4 className="font-semibold normal-case">{t.services.digitalPlatformsLabel}</h4>
                               {service.platforms.map((platform, i) => (
                                 <div key={i}>
                                   <h5 className="font-medium text-sm mb-1 normal-case">
@@ -594,7 +595,7 @@ export default function LayananPage() {
 
                           {service.businessTypes && (
                             <div className="space-y-3">
-                              <h4 className="font-semibold normal-case">Jenis usaha yang didampingi:</h4>
+                              <h4 className="font-semibold normal-case">{t.services.businessTypesLabel}</h4>
                               {service.businessTypes.map((type, i) => (
                                 <div key={i}>
                                   <h5 className="font-medium text-sm mb-1 normal-case">
@@ -608,7 +609,7 @@ export default function LayananPage() {
 
                           {service.deliverables && (
                             <div>
-                              <h4 className="font-semibold mb-2 normal-case">Deliverables:</h4>
+                              <h4 className="font-semibold mb-2 normal-case">{t.services.deliverablesLabel}</h4>
                               <ul className="space-y-1">
                                 {service.deliverables.map((item, i) => (
                                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -622,7 +623,7 @@ export default function LayananPage() {
 
                           {service.idealFor && (
                             <div>
-                              <h4 className="font-semibold mb-2 normal-case">Ideal untuk:</h4>
+                              <h4 className="font-semibold mb-2 normal-case">{t.services.idealForLabel}</h4>
                               <ul className="space-y-1">
                                 {service.idealFor.map((item, i) => (
                                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -636,7 +637,7 @@ export default function LayananPage() {
 
                           {service.targetAudience && (
                             <div>
-                              <h4 className="font-semibold mb-2 normal-case">Khusus untuk:</h4>
+                              <h4 className="font-semibold mb-2 normal-case">{t.services.targetAudienceLabel}</h4>
                               <ul className="space-y-1">
                                 {service.targetAudience.map((item, i) => (
                                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -650,7 +651,7 @@ export default function LayananPage() {
 
                           {service.advantages && (
                             <div>
-                              <h4 className="font-semibold mb-2 normal-case">Keunggulan teknologi kami:</h4>
+                              <h4 className="font-semibold mb-2 normal-case">{t.services.techAdvantagesLabel}</h4>
                               <ul className="space-y-1">
                                 {service.advantages.map((item, i) => (
                                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -664,7 +665,7 @@ export default function LayananPage() {
 
                           {service.packages && (
                             <div>
-                              <h4 className="font-semibold mb-2 normal-case">Paket layanan:</h4>
+                              <h4 className="font-semibold mb-2 normal-case">{t.services.servicePackagesLabel}</h4>
                               <div className="space-y-2">
                                 {service.packages.map((pkg, i) => (
                                   <div key={i} className="flex items-start gap-2 text-sm">
@@ -709,7 +710,7 @@ export default function LayananPage() {
                 viewport={{ once: true }}
                 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4"
               >
-                Bagaimana Kami Bekerja
+                {t.services.howWeWorkTitle}
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -718,7 +719,7 @@ export default function LayananPage() {
                 transition={{ delay: 0.1 }}
                 className="text-muted-foreground text-lg max-w-2xl mx-auto"
               >
-                Proses terstruktur dari perencanaan hingga keberlanjutan
+                {t.services.howWeWorkDesc}
               </motion.p>
             </div>
 
@@ -769,7 +770,7 @@ export default function LayananPage() {
 
                             <div>
                               <div className="text-xs font-bold uppercase tracking-widest text-gray-300 mb-1">
-                                Tahap {step.number}
+                                {t.services.stepLabel} {step.number}
                               </div>
                               <h3 className="font-bold text-2xl text-white tracking-tight">{step.title}</h3>
                             </div>
@@ -831,7 +832,7 @@ export default function LayananPage() {
                 viewport={{ once: true }}
                 className="text-3xl font-bold mb-3 text-white"
               >
-                Mengapa Memilih Natadesa?
+                {t.services.whyTitle}
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -840,7 +841,7 @@ export default function LayananPage() {
                 transition={{ delay: 0.2 }}
                 className="text-gray-200 max-w-xl mx-auto text-sm"
               >
-                Faktor utama yang membuat kami menjadi partner terbaik pembangunan desa.
+                {t.services.whyDesc}
               </motion.p>
             </div>
 
@@ -892,7 +893,7 @@ export default function LayananPage() {
                 viewport={{ once: true }}
                 className="text-3xl font-bold mb-4"
               >
-                Proyek yang Telah Kami Kerjakan
+                {t.services.projectsTitle}
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
@@ -901,7 +902,7 @@ export default function LayananPage() {
                 transition={{ delay: 0.2 }}
                 className="text-muted-foreground max-w-2xl mx-auto"
               >
-                Pengalaman nyata dari berbagai jenis layanan kami
+                {t.services.projectsDesc}
               </motion.p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -929,7 +930,7 @@ export default function LayananPage() {
                       <p className="text-sm text-muted-foreground mb-2">{project.year}</p>
                       <p className="text-sm mb-3">{project.brief}</p>
                       <Button variant="outline" size="sm" className="w-full bg-white hover:bg-[#fa9223]" asChild>
-                        <Link href="/portfolio">Lihat Detail →</Link>
+                        <Link href="/portfolio">{t.services.viewDetail}</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -938,7 +939,7 @@ export default function LayananPage() {
             </div>
             <div className="text-center mt-8">
               <Button size="lg" variant="outline" className="bg-white hover:bg-[#fa9223]" asChild>
-                <Link href="/portfolio">Lihat Semua Portfolio →</Link>
+                <Link href="/portfolio">{t.services.viewAll}</Link>
               </Button>
             </div>
           </div>
@@ -954,7 +955,7 @@ export default function LayananPage() {
                 viewport={{ once: true }}
                 className="text-3xl font-bold mb-4"
               >
-                Pertanyaan yang Sering Diajukan
+                {t.services.faqTitle}
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
@@ -963,7 +964,7 @@ export default function LayananPage() {
                 transition={{ delay: 0.2 }}
                 className="text-muted-foreground"
               >
-                Jawaban atas pertanyaan umum tentang layanan kami
+                {t.services.faqDesc}
               </motion.p>
             </div>
             <motion.div
@@ -995,7 +996,7 @@ export default function LayananPage() {
                 viewport={{ once: true }}
                 className="text-3xl font-bold mb-4"
               >
-                Tools & Sumber Daya
+                {t.services.resourcesTitle}
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
@@ -1004,7 +1005,7 @@ export default function LayananPage() {
                 transition={{ delay: 0.2 }}
                 className="text-muted-foreground"
               >
-                Download resources gratis untuk membantu desa Anda
+                {t.services.resourcesDesc}
               </motion.p>
             </div>
 
@@ -1042,7 +1043,7 @@ export default function LayananPage() {
                       {/* Menggunakan tag <a> agar tombol berfungsi sebagai link download */}
                       <a href={item.link} download target="_blank" rel="noopener noreferrer">
                         <Button variant="outline" size="sm" className="w-full bg-transparent">
-                          Download PDF
+                          {t.services.downloadPdf}
                         </Button>
                       </a>
                     </CardContent>
@@ -1062,10 +1063,8 @@ export default function LayananPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold mb-4 text-balance">Siap Transformasi Desa Anda?</h2>
-                <p className="text-lg mb-6 opacity-90 text-pretty leading-relaxed">
-                  Konsultasikan kebutuhan desa Anda dengan tim expert kami. Konsultasi awal GRATIS!
-                </p>
+                <h2 className="text-3xl font-bold mb-4 text-balance">{t.services.ctaTitle}</h2>
+                <p className="text-lg mb-6 opacity-90 text-pretty leading-relaxed">{t.services.ctaDesc}</p>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -1095,20 +1094,20 @@ export default function LayananPage() {
                   <CardContent className="pt-6">
                     <form className="space-y-4">
                       <div>
-                        <Input placeholder="Nama Lengkap" className="bg-background" />
+                        <Input placeholder={t.services.formName} className="bg-background" />
                       </div>
                       <div>
-                        <Input placeholder="Nama Desa/BUMDes" className="bg-background" />
+                        <Input placeholder={t.services.formVillage} className="bg-background" />
                       </div>
                       <div>
-                        <Input placeholder="Kabupaten/Provinsi" className="bg-background" />
+                        <Input placeholder={t.services.formRegion} className="bg-background" />
                       </div>
                       <div>
-                        <Input placeholder="No. WhatsApp" className="bg-background" />
+                        <Input placeholder={t.services.formWhatsapp} className="bg-background" />
                       </div>
                       <div>
                         <select className="w-full h-10 px-3 rounded-md border border-input bg-background">
-                          <option value="">Layanan yang Diminati</option>
+                          <option value="">{t.services.formService}</option>
                           <option>Rencana Jangka Panjang Desa</option>
                           <option>Peningkatan Kapasitas HR</option>
                           <option>Digitalisasi dan Teknologi</option>
@@ -1116,10 +1115,10 @@ export default function LayananPage() {
                         </select>
                       </div>
                       <div>
-                        <Textarea placeholder="Pesan (optional)" className="bg-background" rows={3} />
+                        <Textarea placeholder={t.services.formMessage} className="bg-background" rows={3} />
                       </div>
                       <Button type="submit" className="w-full" size="lg">
-                        Konsultasi Gratis
+                        {t.services.formSubmit}
                       </Button>
                     </form>
                   </CardContent>
@@ -1137,13 +1136,13 @@ export default function LayananPage() {
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/kontak">
                   <MessageSquare className="mr-2 h-5 w-5" />
-                  Live Chat
+                  {t.services.liveChat}
                 </Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/kontak">
                   <Calendar className="mr-2 h-5 w-5" />
-                  Jadwalkan Meeting
+                  {t.services.scheduleMeeting}
                 </Link>
               </Button>
               <Button
@@ -1159,7 +1158,7 @@ export default function LayananPage() {
                   download="Company_Profile_Natadesa.pdf"
                 >
                   <Download className="mr-2 h-5 w-5" />
-                  Download Company Profile
+                  {t.services.downloadProfile}
                 </a>
               </Button>
             </motion.div>

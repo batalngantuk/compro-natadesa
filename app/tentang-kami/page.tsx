@@ -60,7 +60,10 @@ function CounterWrapper({ value, delay }: { value: number; delay: number }) {
 }
 
 
+import { useLanguage } from "@/contexts/language-context"
+
 export default function TentangKamiPage() {
+  const { t, lang } = useLanguage()
   const missions = [
     {
       icon: Lightbulb,
@@ -283,16 +286,13 @@ export default function TentangKamiPage() {
             >
               {/* Judul diubah menjadi Putih karena BG Gelap */}
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance text-white">
-                Tentang Kami
+                {t.about.heroTitle}
               </h1>
-
-              {/* Deskripsi diubah menjadi Putih Lembut */}
               <p className="text-xl md:text-2xl text-white/90 text-pretty leading-relaxed">
-                Mitra Terpercaya dalam Pemberdayaan Desa Berkelanjutan
+                {t.about.heroSubtitle}
               </p>
-
               <p className="mt-4 text-base md:text-lg text-white/80 text-pretty leading-relaxed">
-                Membangun potensi lokal, memberdayakan masyarakat, melestarikan kearifan budaya dan lingkungan melalui produk yang inovatif dan kolaboratif.
+                {t.about.heroDesc}
               </p>
             </motion.div>
           </div>
@@ -310,18 +310,18 @@ export default function TentangKamiPage() {
               <div className="space-y-6">
                 <div>
                   {/* Ukuran judul dikurangi agar tidak terlalu raksasa */}
-                  <h2 className="text-2xl font-bold mb-6 text-white">Profil Perusahaan</h2>
+                  <h2 className="text-2xl font-bold mb-6 text-white">{t.about.profileTitle}</h2>
                   <div className="space-y-4">
                     <div>
-                      <p className="font-medium text-xs text-white-200 uppercase tracking-wider mb-1">Nama Resmi</p>
+                      <p className="font-medium text-xs text-white-200 uppercase tracking-wider mb-1">{t.about.officialName}</p>
                       <p className="text-base text-white">PT Natadesa Bangun Negeri</p>
                     </div>
                     <div>
-                      <p className="font-medium text-xs text-white-200 uppercase tracking-wider mb-1">Merek Dagang</p>
+                      <p className="font-medium text-xs text-white-200 uppercase tracking-wider mb-1">{t.about.trademark}</p>
                       <p className="text-base text-white">Natadesa Nusantara</p>
                     </div>
                     <div>
-                      <p className="font-medium text-xs text-white-200 uppercase tracking-wider mb-1">Website</p>
+                      <p className="font-medium text-xs text-white-200 uppercase tracking-wider mb-1">{t.about.website}</p>
                       <div className="flex flex-wrap gap-2 text-base">
                         <Link href="https://v0-nata-desa.vercel.app/" className="text-yellow-400 hover:text-yellow-300 transition-colors underline-offset-4 hover:underline">
                           bisnisdesa.id
@@ -348,28 +348,22 @@ export default function TentangKamiPage() {
                     <div className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-sm mb-1 text-white">Deskripsi Perusahaan</p>
-                        <p className="text-sm text-green-50/90 leading-relaxed">
-                          Perusahaan sosial berfokus pada pengembangan desa wisata dan berkelanjutan.
-                        </p>
+                        <p className="font-semibold text-sm mb-1 text-white">{t.about.companyDescLabel}</p>
+                        <p className="text-sm text-green-50/90 leading-relaxed">{t.about.companyDescText}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-sm mb-1 text-white">Pendekatan</p>
-                        <p className="text-sm text-green-50/90 leading-relaxed">
-                          Kolaborasi antara komunitas, pemerintah, dan mitra swasta.
-                        </p>
+                        <p className="font-semibold text-sm mb-1 text-white">{t.about.approachLabel}</p>
+                        <p className="text-sm text-green-50/90 leading-relaxed">{t.about.approachText}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-sm mb-1 text-white">Hasil yang Dicapai</p>
-                        <p className="text-sm text-green-50/90 leading-relaxed">
-                          Mengubah desa-desa menjadi destinasi unggulan—secara ekonomi, budaya, dan lingkungan.
-                        </p>
+                        <p className="font-semibold text-sm mb-1 text-white">{t.about.resultLabel}</p>
+                        <p className="text-sm text-green-50/90 leading-relaxed">{t.about.resultText}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -385,10 +379,8 @@ export default function TentangKamiPage() {
         <section className="py-12 md:py-20 bg-muted/30 overflow-hidden">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#172317]">Riwayat & Perjalanan</h2>
-              <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-                Jejak perjalanan kami dalam pemberdayaan desa berkelanjutan
-              </p>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#172317]">{t.about.historyTitle}</h2>
+              <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">{t.about.historyDesc}</p>
             </div>
 
             <div ref={containerRef} className="relative max-w-5xl mx-auto">
@@ -496,10 +488,8 @@ export default function TentangKamiPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-extrabold mb-4 text-white tracking-tight">Misi Utama</h2>
-              <p className="text-white/70 text-lg max-w-2xl mx-auto">
-                Empat pilar utama dalam pemberdayaan desa untuk masa depan yang lebih mandiri.
-              </p>
+              <h2 className="text-4xl font-extrabold mb-4 text-white tracking-tight">{t.about.mainMissionTitle}</h2>
+              <p className="text-white/70 text-lg max-w-2xl mx-auto">{t.about.mainMissionDesc}</p>
             </motion.div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -566,9 +556,9 @@ export default function TentangKamiPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4 text-white">Bagaimana Kami Bekerja</h2>
+              <h2 className="text-3xl font-bold mb-4 text-white">{t.about.howWeWorkTitle}</h2>
               <p className="text-green-50/80 max-w-3xl mx-auto text-pretty leading-relaxed">
-                Natadesa beroperasi di bidang teknologi dan pemberdayaan masyarakat. Melalui platform{" "}
+                {t.about.howWeWorkDesc}{" "}
                 <a
                   href="https://v0-nata-desa.vercel.app/"
                   target="_blank"
@@ -576,7 +566,7 @@ export default function TentangKamiPage() {
                   className="font-semibold text-[#E67E22] hover:text-yellow-500 underline underline-offset-4 decoration-yellow-400 transition-colors"
                 >
                   bisnisdesa.id
-                </a>, kami menyediakan ekosistem dari hulu ke hilir untuk 'Mengorganisir Desa'.
+                </a>{t.about.howWeWorkDesc2}
               </p>
             </motion.div>
 
@@ -694,7 +684,7 @@ export default function TentangKamiPage() {
                         <Award className="h-16 w-16 text-primary mx-auto mb-6 opacity-80" />
                       </motion.div>
                       <h2 className="text-4xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white">
-                        Visi Perusahaan
+                        {t.about.visionTitle}
                       </h2>
                     </div>
 
@@ -712,7 +702,7 @@ export default function TentangKamiPage() {
                           }}
                           onInit={(typewriter) => {
                             typewriter
-                              .typeString('Menjadi mitra terpercaya dalam mengembangkan potensi desa dan produk yang kompetitif, memperkuat tata kelola melalui partisipasi masyarakat, menjaga lingkungan, dan menghormati kearifan lokal untuk mencapai kemandirian ekonomi yang berkeadilan.')
+                              .typeString(t.about.visionText)
                               .start();
                           }}
                         />
@@ -736,8 +726,8 @@ export default function TentangKamiPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4 text-slate-900">6 Misi Strategis</h2>
-              <p className="text-muted-foreground">Enam misi memperkuat visi dan memandu pelaksanaan program</p>
+              <h2 className="text-3xl font-bold mb-4 text-slate-900">{t.about.strategicMissionsTitle}</h2>
+              <p className="text-muted-foreground">{t.about.strategicMissionsDesc}</p>
             </motion.div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
@@ -769,15 +759,13 @@ export default function TentangKamiPage() {
         <section className="py-16 bg-white">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Tim Kami</h2>
-              <p className="text-muted-foreground">
-                Struktur tim selaras dengan pelaksanaan program desa berkelanjutan
-              </p>
+              <h2 className="text-3xl font-bold mb-4">{t.about.teamTitle}</h2>
+              <p className="text-muted-foreground">{t.about.teamDesc}</p>
             </div>
 
             {/* Leadership Team - Dengan Foto & Layout Keren */}
             <div className="mb-20">
-              <h3 className="text-3xl font-bold text-center mb-12 text-slate-800 tracking-tight">Tim Kepemimpinan</h3>
+              <h3 className="text-3xl font-bold text-center mb-12 text-slate-800 tracking-tight">{t.about.leadershipTitle}</h3>
 
               {/* Menggunakan Flexbox agar item ke-4 & 5 otomatis di tengah */}
               <div className="flex flex-wrap justify-center gap-8 lg:gap-10 max-w-6xl mx-auto px-4">
@@ -826,7 +814,7 @@ export default function TentangKamiPage() {
 
             {/* Support Team - Tetap Minimalis (Tanpa Foto) */}
             <div>
-              <h3 className="text-2xl font-bold text-center mb-8">Tim Support</h3>
+              <h3 className="text-2xl font-bold text-center mb-8">{t.about.supportTitle}</h3>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {teamSupport.map((team, index) => (
                   <Card
@@ -857,10 +845,8 @@ export default function TentangKamiPage() {
         <section className="py-16 bg-white">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-4 text-center">Legalitas</h2>
-              <p className="text-center text-muted-foreground mb-12">
-                Dokumen hukum formal yang mengkonfirmasi kepatuhan perusahaan
-              </p>
+              <h2 className="text-3xl font-bold mb-4 text-center">{t.about.legalityTitle}</h2>
+              <p className="text-center text-muted-foreground mb-12">{t.about.legalityDesc}</p>
               <div className="grid gap-6 md:grid-cols-2">
                 <Card className="border-2 hover:border-primary/50 transition-colors">
                   <CardContent className="pt-6">
@@ -868,15 +854,13 @@ export default function TentangKamiPage() {
                       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                         <FileCheck className="h-8 w-8 text-primary" />
                       </div>
-                      <h3 className="font-bold text-lg mb-2">Akta Pendirian PT</h3>
+                      <h3 className="font-bold text-lg mb-2">{t.about.foundingDeed}</h3>
                       <div className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-3">
-                        ✓ Terdaftar
+                        {t.about.registeredTag}
                       </div>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Akta pendirian resmi yang mengkonfirmasi pendirian badan hukum
-                      </p>
+                      <p className="text-sm text-muted-foreground mb-4">{t.about.foundingDesc}</p>
                       <div className="w-full bg-muted p-3 rounded">
-                        <p className="text-xs text-muted-foreground mb-1">Nomor AHU</p>
+                        <p className="text-xs text-muted-foreground mb-1">{t.about.ahuNumber}</p>
                         <p className="font-mono text-sm font-semibold">AHU-00910.AH.02.01.TAHUN2021</p>
                       </div>
                     </div>
@@ -889,19 +873,17 @@ export default function TentangKamiPage() {
                       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                         <Award className="h-8 w-8 text-primary" />
                       </div>
-                      <h3 className="font-bold text-lg mb-2">Nomor Izin Usaha</h3>
+                      <h3 className="font-bold text-lg mb-2">{t.about.businessLicense}</h3>
                       <div className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-3">
-                        ✓ AKTIF
+                        {t.about.activeTag}
                       </div>
-                      <p className="text-sm text-muted-foreground mb-4">Otorisasi operasional</p>
-                      <p className="text-sm text-muted-foreground">Berlaku untuk operasional bisnis</p>
+                      <p className="text-sm text-muted-foreground mb-4">{t.about.operationalAuth}</p>
+                      <p className="text-sm text-muted-foreground">{t.about.validFor}</p>
                     </div>
                   </CardContent>
                 </Card>
               </div>
-              <p className="text-center text-sm text-muted-foreground mt-8">
-                Dokumen tersedia atas permintaan • Natadesa Nusantara
-              </p>
+              <p className="text-center text-sm text-muted-foreground mt-8">{t.about.docsOnRequest}</p>
             </div>
           </div>
         </section>
@@ -916,8 +898,8 @@ export default function TentangKamiPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">Nilai-Nilai Perusahaan</h2>
-              <p className="text-muted-foreground">Prinsip yang memandu setiap langkah kami</p>
+              <h2 className="text-3xl font-bold mb-4">{t.about.valuesTitle}</h2>
+              <p className="text-muted-foreground">{t.about.valuesDesc}</p>
             </motion.div>
 
             {/* Container untuk Grid dengan Stagger Effect */}
@@ -972,10 +954,8 @@ export default function TentangKamiPage() {
 
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Pencapaian & Dampak</h2>
-              <p className="text-green-50/70 max-w-2xl mx-auto">
-                Dedikasi kami dalam menggerakkan ekonomi dan menjaga kelestarian desa wisata di seluruh penjuru negeri.
-              </p>
+              <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">{t.about.impactTitle}</h2>
+              <p className="text-green-50/70 max-w-2xl mx-auto">{t.about.impactDesc}</p>
             </div>
 
             {/* Container Grid */}
@@ -1031,17 +1011,15 @@ export default function TentangKamiPage() {
               {/* Rocket Putih */}
               <Rocket className="h-16 w-16 text-white mx-auto mb-6" />
 
-              <h2 className="text-3xl font-bold mb-4 text-white">Mari Berkolaborasi</h2>
-              <p className="text-lg text-muted-foreground mb-8 text-pretty text-white">
-                Bergabunglah dengan kami dalam membangun desa berkelanjutan
-              </p>
+              <h2 className="text-3xl font-bold mb-4 text-white">{t.about.ctaTitle}</h2>
+              <p className="text-lg text-muted-foreground mb-8 text-pretty text-white">{t.about.ctaDesc}</p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 {/* Hubungi Kami */}
                 <Button asChild size="lg">
                   <Link href="/kontak">
                     <Phone className="mr-2 h-5 w-5" />
-                    Hubungi Kami
+                    {t.about.ctaContact}
                   </Link>
                 </Button>
 
@@ -1052,7 +1030,7 @@ export default function TentangKamiPage() {
                   className="bg-[#E67E22] text-white border-2 border-[#E67E22] hover:bg-transparent hover:text-[#E67E22] transition-all duration-300"
                 >
                   <Link href="/portfolio">
-                    Lihat Portfolio
+                    {t.about.ctaPortfolio}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -1065,7 +1043,7 @@ export default function TentangKamiPage() {
                 >
                   <a href="https://drive.google.com/file/d/1WiQJcSd8FrrU_rjYAcEYH-YMqfHzMWxn/view?usp=sharing" download>
                     <Download className="mr-2 h-5 w-5" />
-                    Download Company Profile
+                    {t.about.ctaDownload}
                   </a>
                 </Button>
               </div>

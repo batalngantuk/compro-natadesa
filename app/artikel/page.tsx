@@ -167,7 +167,7 @@ const articles = [
 ];
 
 export default function ArtikelPage() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
@@ -223,10 +223,8 @@ export default function ArtikelPage() {
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-emerald-50 via-background to-emerald-50/30 dark:from-emerald-950/20">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h1 className="text-4xl font-bold mb-6 text-balance">Artikel & Berita</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Insight seputar pemberdayaan desa, transformasi digital, dan pariwisata berkelanjutan.
-            </p>
+            <h1 className="text-4xl font-bold mb-6 text-balance">{t.artikel.heroTitle}</h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.artikel.heroDesc}</p>
           </div>
         </section>
 
@@ -236,7 +234,11 @@ export default function ArtikelPage() {
             {/* Info jumlah artikel */}
             <div className="mb-8 flex items-center justify-between">
               <p className="text-sm text-muted-foreground">
-                Menampilkan <span className="font-semibold text-foreground">{startIndex + 1}–{Math.min(endIndex, articles.length)}</span> dari <span className="font-semibold text-foreground">{articles.length}</span> artikel
+                {lang === "en" ? "Showing" : "Menampilkan"}{" "}
+                <span className="font-semibold text-foreground">{startIndex + 1}–{Math.min(endIndex, articles.length)}</span>
+                {" "}{lang === "en" ? "of" : "dari"}{" "}
+                <span className="font-semibold text-foreground">{articles.length}</span>
+                {" "}{lang === "en" ? "articles" : "artikel"}
               </p>
             </div>
 

@@ -31,12 +31,9 @@ export default function KarirPage() {
                 <CardTitle>{t.karir.cardTitle}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-6">
-                  Saat ini kami sedang tidak membuka lowongan, namun kami selalu mencari talenta terbaik untuk bergabung
-                  dengan tim kami.
-                </p>
+                <p className="text-muted-foreground mb-6">{t.karir.noOpenings}</p>
                 <Button asChild>
-                  <Link href="/kontak">Kirim CV Anda</Link>
+                  <Link href="/kontak">{t.karir.sendCV}</Link>
                 </Button>
               </CardContent>
             </Card>

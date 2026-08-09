@@ -13,7 +13,7 @@ import { useLanguage } from "@/contexts/language-context"
 
 // --- KOMPONEN COUNTER ---
 // Menangani animasi angka berjalan dengan pembersihan string yang aman
-function Counter({ value, duration = 2 }) {
+function Counter({ value, duration = 2 }: { value: string | number; duration?: number }) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
@@ -55,8 +55,38 @@ function Counter({ value, duration = 2 }) {
 }
 
 export default function AnalisisPage() {
-  const { t } = useLanguage()
-  const swot = {
+  const { t, lang } = useLanguage()
+
+  const swot = lang === "en" ? {
+    strengths: [
+      "Experience in village consulting",
+      "Network with government and institutions",
+      "Offerings tailored to BUMDes needs",
+      "Sustainable business model with growth prospects",
+      "Strategic collaboration with partners",
+    ],
+    weaknesses: [
+      "Limited capital for expansion",
+      "Dependence on external projects",
+      "Suboptimal technology utilization",
+      "Low brand awareness in broader market",
+      "Limited network",
+    ],
+    opportunities: [
+      "Village economic growth momentum",
+      "Policy support for BUMDes",
+      "Increasing digitalization in rural sector",
+      "High demand for training and mentoring",
+      "Scale-up through partnership/franchise model",
+    ],
+    threats: [
+      "Regulatory changes affecting operations",
+      "Competition from similar service providers",
+      "Low awareness of professionalization needs",
+      "Dependence on public funding policies",
+      "Technology and infrastructure variation by region",
+    ],
+  } : {
     strengths: [
       "Pengalaman dalam konsultasi desa",
       "Jaringan dengan pemerintah dan lembaga",
@@ -87,23 +117,14 @@ export default function AnalisisPage() {
     ],
   }
 
-  const focusAreas = [
-    {
-      icon: TrendingUp,
-      title: "Pertumbuhan Ekonomi Inklusif",
-      description:
-        "Memastikan semua lapisan masyarakat desa dapat berpartisipasi dan menikmati hasil pembangunan ekonomi",
-    },
-    {
-      icon: Lightbulb,
-      title: "Literasi Digital",
-      description: "Meningkatkan kemampuan masyarakat desa dalam menggunakan teknologi untuk operasional dan pemasaran",
-    },
-    {
-      icon: Shield,
-      title: "GEDSI (Gender Equality, Disability & Social Inclusion)",
-      description: "Memastikan kesetaraan gender, inklusi disabilitas, dan inklusi sosial dalam semua program",
-    },
+  const focusAreas = lang === "en" ? [
+    { icon: TrendingUp, title: "Inclusive Economic Growth", description: "Ensuring all layers of village society can participate and enjoy the results of economic development" },
+    { icon: Lightbulb, title: "Digital Literacy", description: "Improving village communities' ability to use technology for operations and marketing" },
+    { icon: Shield, title: "GESI (Gender Equality, Disability & Social Inclusion)", description: "Ensuring gender equality, disability inclusion, and social inclusion in all programs" },
+  ] : [
+    { icon: TrendingUp, title: "Pertumbuhan Ekonomi Inklusif", description: "Memastikan semua lapisan masyarakat desa dapat berpartisipasi dan menikmati hasil pembangunan ekonomi" },
+    { icon: Lightbulb, title: "Literasi Digital", description: "Meningkatkan kemampuan masyarakat desa dalam menggunakan teknologi untuk operasional dan pemasaran" },
+    { icon: Shield, title: "GEDSI (Gender Equality, Disability & Social Inclusion)", description: "Memastikan kesetaraan gender, inklusi disabilitas, dan inklusi sosial dalam semua program" },
   ]
 
   const fadeUp = {
@@ -139,10 +160,10 @@ export default function AnalisisPage() {
               className="max-w-3xl mx-auto text-center"
             >
               <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance text-white tracking-tight">
-                Analisis & Insight
+                {t.analisis.heroTitle}
               </h1>
               <p className="text-lg md:text-xl text-white/80 text-pretty leading-relaxed">
-                Analisis mendalam terhadap peluang pasar dan strategi pengembangan desa
+                {t.analisis.heroDesc}
               </p>
             </motion.div>
           </div>
@@ -152,8 +173,8 @@ export default function AnalisisPage() {
         <section className="py-16">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Analisis Pasar: TAM • SAM • SOM</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">Peluang pengembangan desa di Indonesia</p>
+              <h2 className="text-3xl font-bold mb-4">{t.analisis.marketTitle}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{t.analisis.marketDesc}</p>
             </motion.div>
 
             <div className="max-w-4xl mx-auto space-y-6">
@@ -172,11 +193,11 @@ export default function AnalisisPage() {
                         <p className="text-4xl font-bold text-primary mb-2">
                           <Counter value="83971" />
                         </p>
-                        <p className="text-muted-foreground">Desa di Indonesia</p>
+                        <p className="text-muted-foreground">{t.analisis.tamLabel}</p>
                       </div>
                       <MapPin className="h-16 w-16 text-primary/20" />
                     </div>
-                    <p className="text-sm text-muted-foreground mt-4">Scope: Seluruh Indonesia</p>
+                    <p className="text-sm text-muted-foreground mt-4">{t.analisis.tamScope}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -196,13 +217,11 @@ export default function AnalisisPage() {
                         <p className="text-4xl font-bold text-primary mb-2">
                           <Counter value="6042" />
                         </p>
-                        <p className="text-muted-foreground">Desa wisata aktif</p>
+                        <p className="text-muted-foreground">{t.analisis.samLabel}</p>
                       </div>
                       <MapPin className="h-14 w-14 text-primary/20" />
                     </div>
-                    <p className="text-sm text-muted-foreground mt-4">
-                      Scope: Desa wisata yang sudah aktif di seluruh Indonesia
-                    </p>
+                    <p className="text-sm text-muted-foreground mt-4">{t.analisis.samScope}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -222,19 +241,17 @@ export default function AnalisisPage() {
                         <p className="text-4xl font-bold text-primary mb-2">
                           <Counter value="±1921" />
                         </p>
-                        <p className="text-muted-foreground">Desa di Jawa & Bali</p>
+                        <p className="text-muted-foreground">{t.analisis.somLabel}</p>
                       </div>
                       <MapPin className="h-12 w-12 text-primary/20" />
                     </div>
-                    <p className="text-sm text-muted-foreground mt-4">Scope: Target pasar awal yang paling feasible</p>
+                    <p className="text-sm text-muted-foreground mt-4">{t.analisis.somScope}</p>
                   </CardContent>
                 </Card>
               </motion.div>
 
               <motion.div {...fadeUp} className="bg-primary/10 border border-primary/20 rounded-lg p-6 text-center">
-                <p className="font-semibold text-lg">
-                  Terdapat ruang lingkup yang besar untuk pengembangan desa berkelanjutan secara nasional.
-                </p>
+                <p className="font-semibold text-lg">{t.analisis.marketConclusion}</p>
               </motion.div>
             </div>
           </div>
@@ -244,11 +261,8 @@ export default function AnalisisPage() {
         <section className="py-16 bg-muted/30">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Analisa SWOT</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Analisis SWOT membantu memprioritaskan strategi yang memanfaatkan kekuatan dan peluang sekaligus
-                meminimalkan kelemahan dan ancaman
-              </p>
+              <h2 className="text-3xl font-bold mb-4">{t.analisis.swotTitle}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{t.analisis.swotDesc}</p>
             </motion.div>
 
             <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
@@ -258,7 +272,7 @@ export default function AnalisisPage() {
                   <CardHeader className="bg-green-50">
                     <CardTitle className="flex items-center gap-2 text-green-700">
                       <CheckCircle className="h-6 w-6" />
-                      Kekuatan (Strengths)
+                      {t.analisis.strengthsLabel}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-6">
@@ -280,7 +294,7 @@ export default function AnalisisPage() {
                   <CardHeader className="bg-amber-50">
                     <CardTitle className="flex items-center gap-2 text-amber-700">
                       <AlertCircle className="h-6 w-6" />
-                      Kelemahan (Weaknesses)
+                      {t.analisis.weaknessesLabel}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-6">
@@ -302,7 +316,7 @@ export default function AnalisisPage() {
                   <CardHeader className="bg-blue-50">
                     <CardTitle className="flex items-center gap-2 text-blue-700">
                       <Lightbulb className="h-6 w-6" />
-                      Peluang (Opportunities)
+                      {t.analisis.opportunitiesLabel}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-6">
@@ -324,7 +338,7 @@ export default function AnalisisPage() {
                   <CardHeader className="bg-red-50">
                     <CardTitle className="flex items-center gap-2 text-red-700">
                       <Shield className="h-6 w-6" />
-                      Ancaman (Threats)
+                      {t.analisis.threatsLabel}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-6">
@@ -357,10 +371,8 @@ export default function AnalisisPage() {
 
           <div className="container relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
             <motion.div {...fadeUp} className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-white">Fokus Area</h2>
-              <p className="max-w-2xl mx-auto text-white/80">
-                Bidang prioritas dalam pengembangan desa berkelanjutan
-              </p>
+              <h2 className="text-3xl font-bold mb-4 text-white">{t.analisis.focusTitle}</h2>
+              <p className="max-w-2xl mx-auto text-white/80">{t.analisis.focusDesc}</p>
             </motion.div>
 
             <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">

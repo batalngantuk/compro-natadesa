@@ -11,82 +11,42 @@ import { motion } from "framer-motion"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function SolusiPage() {
-  const { t } = useLanguage()
-  const problems = [
-    {
-      icon: AlertCircle,
-      title: "Kurangnya infrastruktur digital",
-      description: "Konektivitas dan perangkat yang terbatas menghambat operasional dan pengambilan data",
-    },
-    {
-      icon: AlertCircle,
-      title: "Kualitas produk yang tidak konsisten",
-      description: "Produksi yang tidak terstandarisasi mengurangi kepercayaan pembeli dan skalabilitas",
-    },
-    {
-      icon: AlertCircle,
-      title: "Rantai pasokan predator/perantara",
-      description: "Tingkat perantara yang tinggi mengikis margin keuntungan bagi UKM pedesaan dan BUMDE",
-    },
+  const { t, lang } = useLanguage()
+
+  const problems = lang === "en" ? [
+    { icon: AlertCircle, title: "Lack of digital infrastructure", description: "Limited connectivity and devices hinder operations and data collection" },
+    { icon: AlertCircle, title: "Inconsistent product quality", description: "Unstandardized production reduces buyer trust and scalability" },
+    { icon: AlertCircle, title: "Predatory supply chains/intermediaries", description: "High intermediary levels erode profit margins for rural SMEs and BUMDes" },
+  ] : [
+    { icon: AlertCircle, title: "Kurangnya infrastruktur digital", description: "Konektivitas dan perangkat yang terbatas menghambat operasional dan pengambilan data" },
+    { icon: AlertCircle, title: "Kualitas produk yang tidak konsisten", description: "Produksi yang tidak terstandarisasi mengurangi kepercayaan pembeli dan skalabilitas" },
+    { icon: AlertCircle, title: "Rantai pasokan predator/perantara", description: "Tingkat perantara yang tinggi mengikis margin keuntungan bagi UKM pedesaan dan BUMDes" },
   ]
 
-  const pillars = [
-    {
-      icon: TrendingUp,
-      title: "Peningkatan Kapasitas",
-      description:
-        "Pelatihan terarah untuk pengelola desa wisata: literasi keuangan, pemasaran digital, dan standardisasi produksi",
-    },
-    {
-      icon: Laptop,
-      title: "Integrasi Digital",
-      description:
-        "ERP & marketplace bisnisdesa.id yang dioptimalkan untuk konektivitas rendah dan literasi teknologi dasar",
-    },
-    {
-      icon: LinkIcon,
-      title: "Keterkaitan Pasar",
-      description: "Pipelines direct-to-market yang menghubungkan produk desa ke ritel nasional dan hub ekspor",
-    },
+  const pillars = lang === "en" ? [
+    { icon: TrendingUp, title: "Capacity Building", description: "Targeted training for tourism village managers: financial literacy, digital marketing, and production standardization" },
+    { icon: Laptop, title: "Digital Integration", description: "bisnisdesa.id ERP & marketplace optimized for low connectivity and basic technology literacy" },
+    { icon: LinkIcon, title: "Market Linkage", description: "Direct-to-market pipelines connecting village products to national retail and export hubs" },
+  ] : [
+    { icon: TrendingUp, title: "Peningkatan Kapasitas", description: "Pelatihan terarah untuk pengelola desa wisata: literasi keuangan, pemasaran digital, dan standardisasi produksi" },
+    { icon: Laptop, title: "Integrasi Digital", description: "ERP & marketplace bisnisdesa.id yang dioptimalkan untuk konektivitas rendah dan literasi teknologi dasar" },
+    { icon: LinkIcon, title: "Keterkaitan Pasar", description: "Pipelines direct-to-market yang menghubungkan produk desa ke ritel nasional dan hub ekspor" },
   ]
 
-  const advantages = [
-    {
-      icon: Target,
-      title: "Solusi Khusus",
-      subtitle: "Desain khusus desa",
-      description: "Pendekatan sesuai karakter lokal agar implementasi tepat sasaran",
-    },
-    {
-      icon: Copy,
-      title: "Model Replikasi",
-      subtitle: "Model bertahap MVP replikatif",
-      description: "Model bertahap yang mudah direplikasi lintas wilayah",
-    },
-    {
-      icon: Globe,
-      title: "Integrasi Digital",
-      subtitle: "Operasional efektif dan transparan",
-      description: "ERP/marketplace bisnisdesa.id untuk operasi yang efisien & akuntabel",
-    },
-    {
-      icon: Handshake,
-      title: "Kemitraan Strategis",
-      subtitle: "Kolaborasi lintas sektor",
-      description: "Kemitraan lintas sektor untuk memperkuat skala & keberlanjutan",
-    },
-    {
-      icon: Heart,
-      title: "Keterlibatan Komunitas",
-      subtitle: "Kepemilikan & keberlanjutan",
-      description: "Keterlibatan warga dari awal untuk rasa memiliki yang kuat",
-    },
-    {
-      icon: Award,
-      title: "Track Record Terbukti",
-      subtitle: "Pengalaman dengan berbagai desa",
-      description: "Pengalaman nyata di banyak desa membuktikan efektivitas",
-    },
+  const advantages = lang === "en" ? [
+    { icon: Target, title: "Tailored Solutions", subtitle: "Village-specific design", description: "Approach aligned with local character for targeted implementation" },
+    { icon: Copy, title: "Replication Model", subtitle: "Replicable MVP model", description: "Phased model easily replicated across regions" },
+    { icon: Globe, title: "Digital Integration", subtitle: "Effective & transparent operations", description: "bisnisdesa.id ERP/marketplace for efficient & accountable operations" },
+    { icon: Handshake, title: "Strategic Partnerships", subtitle: "Cross-sector collaboration", description: "Cross-sector partnerships to strengthen scale & sustainability" },
+    { icon: Heart, title: "Community Engagement", subtitle: "Ownership & sustainability", description: "Citizen involvement from the start for strong sense of ownership" },
+    { icon: Award, title: "Proven Track Record", subtitle: "Experience with diverse villages", description: "Real experience across many villages proves effectiveness" },
+  ] : [
+    { icon: Target, title: "Solusi Khusus", subtitle: "Desain khusus desa", description: "Pendekatan sesuai karakter lokal agar implementasi tepat sasaran" },
+    { icon: Copy, title: "Model Replikasi", subtitle: "Model bertahap MVP replikatif", description: "Model bertahap yang mudah direplikasi lintas wilayah" },
+    { icon: Globe, title: "Integrasi Digital", subtitle: "Operasional efektif dan transparan", description: "ERP/marketplace bisnisdesa.id untuk operasi yang efisien & akuntabel" },
+    { icon: Handshake, title: "Kemitraan Strategis", subtitle: "Kolaborasi lintas sektor", description: "Kemitraan lintas sektor untuk memperkuat skala & keberlanjutan" },
+    { icon: Heart, title: "Keterlibatan Komunitas", subtitle: "Kepemilikan & keberlanjutan", description: "Keterlibatan warga dari awal untuk rasa memiliki yang kuat" },
+    { icon: Award, title: "Track Record Terbukti", subtitle: "Pengalaman dengan berbagai desa", description: "Pengalaman nyata di banyak desa membuktikan efektivitas" },
   ]
 
   // Variasi animasi dasar
@@ -144,10 +104,10 @@ export default function SolusiPage() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance text-white tracking-tight">
-                Solusi Kami
+                {t.solusi.heroTitle}
               </h1>
               <p className="text-lg md:text-xl text-slate-200 text-pretty leading-relaxed">
-                Kerangka strategis untuk mempercepat kemandirian ekonomi desa
+                {t.solusi.heroDesc}
               </p>
             </motion.div>
           </div>
@@ -160,10 +120,8 @@ export default function SolusiPage() {
               className="text-center mb-12"
               {...fadeUp}
             >
-              <h2 className="text-3xl font-bold mb-4">Peluang Natadesa</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Lebih dari 75.000 desa di Indonesia masih terpinggirkan dari rantai nilai modern
-              </p>
+              <h2 className="text-3xl font-bold mb-4">{t.solusi.problemTitle}</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.solusi.problemDesc}</p>
             </motion.div>
             <div className="grid gap-6 md:grid-cols-3 mb-8">
               {problems.map((problem, index) => (
@@ -188,8 +146,7 @@ export default function SolusiPage() {
               {...fadeUp}
             >
               <p className="text-center text-muted-foreground">
-                <strong className="text-foreground">Risiko:</strong> Tanpa intervensi yang terukur, kesenjangan ekonomi
-                antara pedesaan dan perkotaan akan terus melebar, menghambat kemakmuran yang merata.
+                <strong className="text-foreground">{t.solusi.riskLabel}</strong> {t.solusi.riskText}
               </p>
             </motion.div>
           </div>
@@ -202,10 +159,8 @@ export default function SolusiPage() {
               className="text-center mb-12"
               {...fadeUp}
             >
-              <h2 className="text-3xl font-bold mb-4">Solusinya: Kerangka Natadesa</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Tiga pilar strategi untuk mempercepat kemandirian ekonomi desa
-              </p>
+              <h2 className="text-3xl font-bold mb-4">{t.solusi.solutionTitle}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{t.solusi.solutionDesc}</p>
             </motion.div>
             <div className="grid gap-8 md:grid-cols-3 mb-12">
               {pillars.map((pillar, index) => (
@@ -223,7 +178,7 @@ export default function SolusiPage() {
                         >
                           {index + 1}
                         </motion.div>
-                        <CardTitle className="text-lg">Pilar {index + 1}</CardTitle>
+                        <CardTitle className="text-lg">{t.solusi.pillarLabel} {index + 1}</CardTitle>
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -240,17 +195,15 @@ export default function SolusiPage() {
               {...fadeUp}
               whileHover={{ scale: 1.02 }}
             >
-              <h3 className="text-2xl font-bold mb-3">Platform bisnisdesa.id</h3>
-              <p className="text-lg mb-2">Tulang punggung operasional untuk "Nata Desa" (Organize the Village)</p>
-              <p className="opacity-90 mb-4">
-                Ekosistem Hulu ke Hilir • Mengorganisasi • Mendigitalisasi • Mengkomersialkan
-              </p>
+              <h3 className="text-2xl font-bold mb-3">{t.solusi.platformSectionTitle}</h3>
+              <p className="text-lg mb-2">{t.solusi.platformSectionDesc}</p>
+              <p className="opacity-90 mb-4">{t.solusi.platformSectionSub}</p>
               <Button
                 variant="secondary"
                 asChild
                 className="bg-[#E67E22] hover:bg-[#D35400] text-white border-none transition-colors"
               >
-                <Link href="/platform">Pelajari Platform</Link>
+                <Link href="/platform">{t.solusi.learnPlatform}</Link>
               </Button>
             </motion.div>
           </div>
@@ -263,10 +216,8 @@ export default function SolusiPage() {
               className="text-center mb-12"
               {...fadeUp}
             >
-              <h2 className="text-3xl font-bold mb-4">Keunggulan Kompetitif</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Faktor-faktor pendukung yang membuat pembangunan desa menjadi terukur, digital, dan berkelanjutan
-              </p>
+              <h2 className="text-3xl font-bold mb-4">{t.solusi.advantageTitle}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{t.solusi.advantageDesc}</p>
             </motion.div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {advantages.map((advantage, index) => (
@@ -293,20 +244,15 @@ export default function SolusiPage() {
         <section className="py-20 bg-[#172317] text-white">
           <div className="container max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <motion.div {...fadeUp}>
-              <h2 className="text-3xl font-bold mb-4 text-balance">
-                Mari Terapkan Solusi Ini Bersama
-              </h2>
-              <p className="text-lg mb-8 opacity-90 text-pretty max-w-2xl mx-auto">
-                Hubungi kami untuk mendiskusikan bagaimana kerangka Natadesa dapat diterapkan di desa Anda
-              </p>
+              <h2 className="text-3xl font-bold mb-4 text-balance">{t.solusi.ctaTitle}</h2>
+              <p className="text-lg mb-8 opacity-90 text-pretty max-w-2xl mx-auto">{t.solusi.ctaDesc}</p>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                {/* Button menggunakan warna #E67E22 dengan hover yang sedikit lebih gelap */}
                 <Button
                   size="lg"
                   className="bg-[#E67E22] hover:bg-[#D35400] text-white border-none px-8 transition-colors"
                   asChild
                 >
-                  <Link href="/kontak">Konsultasi Gratis</Link>
+                  <Link href="/kontak">{t.solusi.ctaBtn}</Link>
                 </Button>
               </motion.div>
             </motion.div>
