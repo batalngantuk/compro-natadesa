@@ -208,7 +208,7 @@ export default function HomePage() {
                     <Award className="h-6 w-6 text-[#065a45] group-hover:text-white transition-colors" />
                   </div>
                   <div className="text-3xl font-extrabold mb-2 text-slate-900 flex items-center justify-center">
-                    <Counter end={20} />+
+                    <Counter end={35} />+
                   </div>
                   <p className="text-xs md:text-sm text-slate-500 font-medium leading-snug px-4">{t.home.stat2}</p>
                 </CardContent>
