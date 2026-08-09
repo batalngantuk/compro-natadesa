@@ -154,27 +154,27 @@ export default function TentangKamiPage() {
     {
       name: "Prof. Dr. dr. Asra AlFauzi, Sp.BS, Subsp. N Vas",
       position: "Penasihat",
-      image: "/dr.jpeg" // Path relatif ke folder public
-    },
-    {
-      name: "H. Junaedhi Mulyono,S.H",
-      position: "Pembimbing",
-      image: "/pakjun.jpeg" // Path relatif ke folder public
+      image: "/dr.jpeg"
     },
     {
       name: "Harri Yudho P .SE",
-      position: "Ketua",
-      image: "/HARRI.png" // Path relatif ke folder public
+      position: "Founder",
+      image: "/HARRI.png"
+    },
+    {
+      name: "Salim Khan",
+      position: "Co Founder",
+      image: "/salim-khan.jpg"
     },
     {
       name: "Alifta Asyari R, A.MD",
       position: "Business Development",
-      image: "/TATA.png" // Placeholder
+      image: "/TATA.png"
     },
     {
       name: "Irfan Saputra S. Ars",
       position: "COO",
-      image: "/IRFAN.png" // Placeholder
+      image: "/IRFAN.png"
     },
   ]
 
