@@ -113,23 +113,6 @@ export default function TentangKamiPage() {
     { name: "Dinda P", position: "Marketing", image: "/dinda-p.jpg" },
   ]
 
-  const teamSupport = [
-    { department: "IT Support", icon: Code, members: ["P Alifian Nugroho ( Software Engineer)", "Arnold Tumewu", "Kholilurrohman"] },
-    {
-      department: "Media & Content", icon: Camera,
-      members: lang === "en"
-        ? ["M. Rafly Nur Iswandi (Videographer)", "Nizam Rifyal Aufa (Social Media Specialist)", "Farih Zuhair Al Haidar (Photographer)"]
-        : ["M. Rafly Nur Iswandi (Videografer)", "Nizam Rifyal Aufa (Media Sosial Spesialis)", "Farih Zuhair Al Haidar (Fotografer)"],
-    },
-    {
-      department: lang === "en" ? "Planning & Design" : "Perencanaan & Desain", icon: PenTool,
-      members: lang === "en"
-        ? ["Fatimah Azahro (Urban Planning)", "Nafila Nur Izza (Area Design)", "Thifaltsabita Zharifah Hanin (Area Design)", "Auuwalatussa'iyah Nurrohmah (Architecture)", "Muhammad Fathir Al Kahfi (Architecture)", "Muhammad Galvani Nauval Zahid (Civil Engineering)"]
-        : ["Fatimah Azahro (Plano)", "Nafila Nur Izza (Perancangan Kawasan)", "Thifaltsabita Zharifah Hanin (Perancangan Kawasan)", "Auuwalatussa'iyah Nurrohmah (Arsitektur)", "Muhammad Fathir Al Kahfi (Arsitektur)", "Muhammad Galvani Nauval Zahid (Teknik Sipil)"],
-    },
-    { department: "E-Commerce", icon: ShoppingCart, members: ["Fatichah Eri (E-commerce Team)"] },
-  ]
-
   const values = lang === "en" ? [
     { icon: Target, title: "Transparency", description: "Accountable operations" },
     { icon: Globe, title: "Sustainability", description: "Environmentally friendly practices" },
@@ -701,33 +684,6 @@ export default function TentangKamiPage() {
               </div>
             </div>
 
-            {/* Support Team - Tetap Minimalis (Tanpa Foto) */}
-            <div>
-              <h3 className="text-2xl font-bold text-center mb-8">{t.about.supportTitle}</h3>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {teamSupport.map((team, index) => (
-                  <Card
-                    key={index}
-                    className="bg-white border-transparent hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md"
-                  >
-                    <CardHeader>
-                      <team.icon className="h-8 w-8 text-primary mb-2" />
-                      <CardTitle className="text-lg">{team.department}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        {team.members.map((member, idx) => (
-                          <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                            <span className="text-primary mt-1">•</span>
-                            <span>{member}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
