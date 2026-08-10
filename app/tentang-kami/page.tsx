@@ -104,13 +104,17 @@ export default function TentangKamiPage() {
     { year: "2025", title: "Ekspansi Berkelanjutan", description: "Ekspansi ke Kalimantan Timur & Jawa Barat", detail: "Pelatihan KDMP skala kabupaten" },
   ]
 
-  const teamLeaders = [
+  const teamRow1 = [
     { name: "Prof. Dr. dr. Asra AlFauzi, Sp.BS, Subsp. N Vas", position: lang === "en" ? "Advisor" : "Penasihat", image: "/dr.jpeg" },
     { name: "Harri Yudho P .SE", position: "Founder", image: "/HARRI.png" },
     { name: "Salim Khan", position: "Co Founder", image: "/salim-khan.jpg" },
+  ]
+
+  const teamRow2 = [
     { name: "Alifta Asyari R, A.MD", position: "Business Development", image: "/TATA.png" },
     { name: "Irfan Saputra S. Ars", position: "Operational", image: "/IRFAN.png" },
     { name: "Dinda P", position: "Marketing", image: "/dinda-p.jpg" },
+    { name: "Arnold Tumewu", position: "IT", image: "/team/arnold.jpg" },
   ]
 
   const values = lang === "en" ? [
@@ -639,48 +643,66 @@ export default function TentangKamiPage() {
             <div className="mb-20">
               <h3 className="text-3xl font-bold text-center mb-12 text-slate-800 tracking-tight">{t.about.leadershipTitle}</h3>
 
-              {/* Menggunakan Flexbox agar item ke-4 & 5 otomatis di tengah */}
-              <div className="flex flex-wrap justify-center gap-8 lg:gap-10 max-w-6xl mx-auto px-4">
-                {teamLeaders.map((leader, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="w-full sm:w-[280px] lg:w-[300px]"
-                  >
-                    <div className="group relative flex flex-col items-center">
-
-                      {/* Frame Foto Unik */}
-                      <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl mb-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-
-                        {leader.image ? (
-                          <img
-                            src={leader.image}
-                            alt={leader.name}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-300">
-                            <Users className="h-20 w-20" />
-                          </div>
-                        )}
+              <div className="space-y-10 max-w-6xl mx-auto px-4">
+                {/* Baris 1: 3 profil */}
+                <div className="flex flex-wrap justify-center gap-8 lg:gap-10">
+                  {teamRow1.map((leader, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="w-full sm:w-[280px] lg:w-[300px]"
+                    >
+                      <div className="group relative flex flex-col items-center">
+                        <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl mb-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                          {leader.image ? (
+                            <img src={leader.image} alt={leader.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-300">
+                              <Users className="h-20 w-20" />
+                            </div>
+                          )}
+                        </div>
+                        <div className="text-center relative z-10 w-full px-2">
+                          <h3 className="font-bold text-xl text-slate-900 leading-tight">{leader.name}</h3>
+                          <p className="text-sm font-medium uppercase tracking-wider text-green-600 mt-2 border-t border-slate-200 pt-2 inline-block">{leader.position}</p>
+                        </div>
                       </div>
+                    </motion.div>
+                  ))}
+                </div>
 
-                      {/* Info Text - Always Visible */}
-                      <div className="text-center relative z-10 w-full px-2">
-                        <h3 className="font-bold text-xl text-slate-900 leading-tight">
-                          {leader.name}
-                        </h3>
-                        <p className="text-sm font-medium uppercase tracking-wider text-green-600 mt-2 border-t border-slate-200 pt-2 inline-block">
-                          {leader.position}
-                        </p>
+                {/* Baris 2: 4 profil */}
+                <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
+                  {teamRow2.map((leader, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="w-full sm:w-[240px] lg:w-[255px]"
+                    >
+                      <div className="group relative flex flex-col items-center">
+                        <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl mb-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                          {leader.image ? (
+                            <img src={leader.image} alt={leader.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-300">
+                              <Users className="h-20 w-20" />
+                            </div>
+                          )}
+                        </div>
+                        <div className="text-center relative z-10 w-full px-2">
+                          <h3 className="font-bold text-xl text-slate-900 leading-tight">{leader.name}</h3>
+                          <p className="text-sm font-medium uppercase tracking-wider text-green-600 mt-2 border-t border-slate-200 pt-2 inline-block">{leader.position}</p>
+                        </div>
                       </div>
-
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
 
