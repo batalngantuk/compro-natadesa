@@ -12,7 +12,7 @@ type LanguageCtx = {
 const Ctx = createContext<LanguageCtx | null>(null)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("id")
+  const [lang, setLangState] = useState<Lang>("en")
 
   useEffect(() => {
     const saved = localStorage.getItem("natadesa-lang") as Lang | null
