@@ -105,15 +105,12 @@ export default function TentangKamiPage() {
   ]
 
   const teamRow1 = [
-    { name: "Prof. Dr. dr. Asra AlFauzi, Sp.BS, Subsp. N Vas", position: lang === "en" ? "Advisor" : "Penasihat", image: "/dr.jpeg" },
     { name: "Harri Yudho P .SE", position: "Founder", image: "/HARRI.png" },
-    { name: "Salim Khan", position: "Co Founder", image: "/salim-khan.jpg" },
   ]
 
   const teamRow2 = [
     { name: "Alifta Asyari R, A.MD", position: "Business Development", image: "/TATA.png" },
     { name: "Irfan Saputra S. Ars", position: "Operational", image: "/IRFAN.png" },
-    { name: "Dinda P", position: "Marketing", image: "/dinda-p.jpg" },
     { name: "Arnold Tumewu", position: "IT", image: "/team/arnold.jpg" },
   ]
 
@@ -683,7 +680,7 @@ export default function TentangKamiPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.5 }}
-                      className="w-full sm:w-[240px] lg:w-[255px]"
+                      className="w-full sm:w-[280px] lg:w-[300px]"
                     >
                       <div className="group relative flex flex-col items-center">
                         <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl mb-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
